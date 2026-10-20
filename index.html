@@ -6,21 +6,24 @@
   <title>Yo-Gi-Oh - Cards</title>
   <link rel="stylesheet" href="./dist/output.css">
 </head>
-<body class="bg-ground font-body text-ink">
+<body class="grid grid-cols-1 w-full bg-ground font-body text-ink">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <header class="bg-ink text-white">
-    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-8 py-5">
-      <div class="flex items-center gap-3">
+  <header class="bg-ink text-white ">
+    <div class="flex flex-wrap items-center w-full justify-between gap-4 px-4 py-5">
+
+      <!-- logo titre -->
+      <div class="flex items-center gap-3 ">
         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand">
           <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><circle cx="12" cy="12" r="3"></circle></svg>
         </div>
         <div>
-          <p class="font-display text-2xl font-extrabold leading-none">Mon Dex</p>
+          <p class="font-display text-2xl font-extrabold leading-none">Yo-Gi-Oh!</p>
           <p class="text-sm text-gray-300">[Votre univers] · <span id="creature-count">6</span> créatures</p>
         </div>
       </div>
-      <nav aria-label="Navigation principale" class="flex flex-wrap gap-2">
+      <!-- navigation -->  
+      <nav aria-label="Navigation principale" class="flex flex-center flex-wrap gap-2">
         <a href="#grid" class="rounded-full bg-white/10 px-4 py-2">Créatures</a>
         <a href="#team" class="rounded-full bg-white/10 px-4 py-2">Mon équipe · <span id="team-count">0</span>/6</a>
         <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink">+ Nouvelle créature</a>
@@ -28,18 +31,19 @@
     </div>
   </header>
 
-  <main class="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
+  <main class="flex flex-col w-full gap-8 px-4 py-8">
 
-    <!-- ===================== RECHERCHE ET FILTRES ===================== -->
-    <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
+    <!-- ===================== RECHERCHE ===================== -->
+    <section aria-label="Recherche et filtres" class="w-full flex flex-col gap-4">
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h1 class="font-display text-4xl font-extrabold">Trouver une créature</h1>
+        <h1 class="font-display text-3xl font-extrabold">Trouver une créature</h1>
         <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
           Rechercher par nom
           <input id="search" type="search" placeholder="ex. Mossling" class="field font-normal">
         </label>
       </div>
-      <div id="filters" role="group" aria-label="Filtrer par type" class="flex h-11 flex-nowrap gap-2 overflow-hidden">
+      <!-- ===================== Filters ===================== -->
+      <div id="filters" role="group" aria-label="Filtrer par type" class="flex flex-wrap gap-2 mb-2">
           <button type="button" class="chip bg-ink text-white border-ink shrink-0">Tous</button>
           <button type="button" class="chip shrink-0">Feu</button>
           <button type="button" class="chip shrink-0">Eau</button>
@@ -50,11 +54,14 @@
       </div>
     </section>
 
-    <div class="flex gap-8 items-start">
 
+    <!--  Cards & showing selector & equipe --->
+
+    <div class="grid grid-cols-1 gap-8 items-start mt-2 w-full">
+      <!-- cards -->
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
-      <section id="grid" aria-label="Créatures" class="grid min-w-0 flex-1 grid-cols-3 gap-5">
-
+      <section id="grid" aria-label="Créatures" class="grid min-w-0 flex-1 grid-cols-1 gap-5">
+        <!-- card 1 -->  
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -69,6 +76,7 @@
           <button type="button" class="btn-outline">Ajouter à l'équipe</button>
         </article>
 
+        <!-- card 2 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -83,6 +91,7 @@
           <button type="button" class="btn-outline">Ajouter à l'équipe</button>
         </article>
 
+        <!-- card 3 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -97,6 +106,7 @@
           <button type="button" class="btn-outline">Ajouter à l'équipe</button>
         </article>
 
+        <!-- card 4 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -111,6 +121,7 @@
           <button type="button" class="btn-outline">Ajouter à l'équipe</button>
         </article>
 
+        <!-- card 5 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
           <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
@@ -124,6 +135,8 @@
           <p class="text-sm text-muted">Niveau 1 · Total 420</p>
           <button type="button" class="btn-outline">Ajouter à l'équipe</button>
         </article>
+
+        <!-- card 6 -->
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
@@ -141,8 +154,8 @@
 
       </section>
 
-      <aside class="flex w-[420px] shrink-0 flex-col gap-6">
-
+      <!-- Selector showing & mon equipe-->
+      <aside class="flex w-full shrink-0 flex-col gap-6">
         <!-- ===================== PANNEAU DE DÉTAIL ===================== -->
         <section id="detail" aria-label="Détail de la créature" class="flex flex-col gap-4 rounded-card border-2 border-ink bg-white p-6">
           <div class="flex items-center justify-between">
@@ -171,9 +184,9 @@
           <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
                compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
         </section>
-
       </aside>
     </div>
+
 
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
     <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-card bg-white p-8">
