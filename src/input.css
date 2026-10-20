@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Colors from your old tailwind.config.js */
+  --color-brand: #4B5563;
+  --color-brand-dark: #374151;
+  --color-brand-light: #E5E7EB;
+
+  --color-ink: #14171D;
+  --color-muted: #545B68;
+  --color-ground: #EDEFF3;
+  --color-line: #D5D9E1;
+
+  /* Font */
+  --font-display: "Arial", sans-serif;
+} 
 
 @layer components {
   /* Bouton principal */
