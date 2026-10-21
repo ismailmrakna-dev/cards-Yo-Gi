@@ -13,7 +13,7 @@
     <div class="flex flex-wrap items-center w-full justify-between gap-4 px-4 py-5">
 
       <!-- logo titre -->
-      <div class="flex items-center gap-3 ">
+      <div class="flex items-center gap-3">
         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand">
           <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><circle cx="12" cy="12" r="3"></circle></svg>
         </div>
@@ -31,7 +31,7 @@
     </div>
   </header>
 
-  <main class="flex flex-col w-full gap-8 px-4 py-8">
+  <main class="flex flex-col w-full gap-8 px-4 py-8 ">
 
     <!-- ===================== RECHERCHE ===================== -->
     <section aria-label="Recherche et filtres" class="w-full flex flex-col gap-4">
@@ -44,23 +44,23 @@
       </div>
       <!-- ===================== Filters ===================== -->
       <div id="filters" role="group" aria-label="Filtrer par type" class="flex flex-wrap gap-2 mb-2">
-          <button type="button" class="chip bg-ink text-white border-ink shrink-0">Tous</button>
-          <button type="button" class="chip shrink-0">Feu</button>
-          <button type="button" class="chip shrink-0">Eau</button>
-          <button type="button" class="chip shrink-0">Plante</button>
-          <button type="button" class="chip shrink-0">Électrik</button>
-          <button type="button" class="chip shrink-0">Glace</button>
-          <button type="button" class="chip shrink-0">Ténèbres</button>
+          <button type="button" class="chip bg-ink text-white border-ink ">ALL</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-4 w-4 mx-auto " src="./images/DARK.svg" alt="icon type DARK">DARK</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-4 w-4 mx-auto " src="./images/FIRE.svg" alt="icon type FIRE">FIRE</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-5 w-4  mx-auto " src="./images/WATER.svg" alt="icon type WATER">WATER</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-5 w-5 mx-auto " src="./images/WIND.svg" alt="icon type WIND">WIND</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-5 w-5 mx-auto " src="./images/EARTH.svg" alt="icon type EARTH">EARTH</button>
+          <button type="button" class="chip px-4 py-2 w-auto h-auto"><img class="h-5 w-5 mx-auto " src="./images/LIGHT.svg" alt="icon type LIGHT">LIGHT</button>
       </div>
     </section>
 
 
     <!--  Cards & showing selector & equipe --->
 
-    <div class="grid grid-cols-1 gap-8 items-start mt-2 w-full">
+    <div class="grid grid-cols-1 gap-8 items-start mt-2 w-full md:gap-10 lg:grid-cols-2 lg:gap-10">
       <!-- cards -->
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
-      <section id="grid" aria-label="Créatures" class="grid min-w-0 flex-1 grid-cols-1 gap-5">
+      <section id="grid" aria-label="Créatures" class="grid min-w-0 flex-1 grid-cols-1 gap-5 md:grid-cols-2 md:gap-7 lg:grid-cols-3 lg:gap-7">
         <!-- card 1 -->  
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
