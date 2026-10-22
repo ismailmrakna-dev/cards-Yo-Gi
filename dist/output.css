@@ -217,6 +217,9 @@
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
   .block {
     display: block;
   }
@@ -228,6 +231,12 @@
   }
   .table {
     display: table;
+  }
+  .h-1 {
+    height: var(--spacing);
+  }
+  .h-1\/2 {
+    height: calc(1 / 2 * 100%);
   }
   .h-2 {
     height: calc(var(--spacing) * 2);
@@ -298,8 +307,17 @@
   .w-11 {
     width: calc(var(--spacing) * 11);
   }
+  .w-15 {
+    width: calc(var(--spacing) * 15);
+  }
   .w-20 {
     width: calc(var(--spacing) * 20);
+  }
+  .w-30 {
+    width: calc(var(--spacing) * 30);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
   }
   .w-50 {
     width: calc(var(--spacing) * 50);
@@ -348,6 +366,9 @@
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .grid-cols-\[80px_1fr_40px\] {
     grid-template-columns: 80px 1fr 40px;
@@ -427,14 +448,23 @@
   .border-line {
     border-color: var(--color-line);
   }
+  .border-white {
+    border-color: var(--color-white);
+  }
   .bg-\[\#00008B\] {
     background-color: #00008B;
+  }
+  .bg-\[\#000080\] {
+    background-color: #000080;
   }
   .bg-\[\#00128B\] {
     background-color: #00128B;
   }
   .bg-\[\#249DFF\] {
     background-color: #249DFF;
+  }
+  .bg-\[\#2490FF\] {
+    background-color: #2490FF;
   }
   .bg-\[\#071521\] {
     background-color: #071521;
@@ -486,6 +516,12 @@
   }
   .bg-\[url\(\'\.\.\/images\/bg-header\.jpg\'\)\] {
     background-image: url('../images/bg-header.jpg');
+  }
+  .bg-\[url\(\'\.\.\/images\/bg-univers\.jpg\'\)\] {
+    background-image: url('../images/bg-univers.jpg');
+  }
+  .bg-\[url\(\'\.\.\/images\/yogi-bg\.webp\'\)\] {
+    background-image: url('../images/yogi-bg.webp');
   }
   .bg-cover {
     background-size: cover;

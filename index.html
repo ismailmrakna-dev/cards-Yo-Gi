@@ -54,19 +54,19 @@
       <section  aria-label="Créatures" class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-7 lg:grid-cols-3 lg:gap-7">
         <!-- card 1 -->  
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
-          <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#191970]">
+        <article class="h-170 flex flex-col gap-3 bg-[url('../images/bg-univers.jpg')] rounded-md p-3 pb-4">
+          <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
             <img src="./images/card-01-exodia.jpg" alt="Exodia" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#001</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Exodia the Forbidden One</h3>
+            <h3 class="font-display text-xl text-white font-semibold">Exodia the Forbidden One</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">EFFECT</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DARK</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 4000  |   DEF : 3200</p>
+          <p class="text-sm mx-auto text-white font-bold">ATK : 4000  |   DEF : 3200</p>
           <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
           <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
@@ -198,9 +198,64 @@
 
         <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
         <section id="team" aria-label="Mon équipe" class="rounded-2xl text-white bg-[#191970]  p-6 lg:w-96">
-          <h2 class="font-display text-2xl font-extrabold">Mon équipe</h2>
+          <h2 class="block font-display mb-4 text-2xl font-extrabold">Mon équipe</h2>
           <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
                compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- member 1 -->     
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+
+            <!-- member 2 -->  
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+
+            <!-- member 3 -->  
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+
+            <!-- member 4 -->  
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+
+            <!-- member 5 -->  
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+
+            <!-- member 6 -->  
+            <div class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-50 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
+
+              </div>
+              <p class>nom</p>
+              <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
+            </div>
+          </div>
         </section>
       </aside>
     </div>
