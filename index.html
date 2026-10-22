@@ -15,9 +15,9 @@
       <img class=" w-70 h-50 m-0 p-0" src="./images/Yu-Gi-Oh-Duel-Monsters-Logo-2001.png" alt="Logo de l'univers Yo-Gi-Oh!">
       <!-- navigation -->  
       <nav aria-label="Navigation principale" class="flex flex-center flex-wrap gap-2">
-        <a href="#grid" class="rounded-full bg-white/10 px-4 py-2 hover:bg-white/20">Créatures</a>
-        <a href="#team" class="rounded-full bg-white/10 px-4 py-2 hover:bg-white/20">Mon équipe · <span id="team-count">0</span>/6</a>
-        <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink hover:bg-gray-300 ">+ Nouvelle créature</a>
+        <a href="#grid" class="rounded-full text-[#F5B942] bg-[#000080] font-bold px-4 py-2 hover:bg-white/40">Créatures</a>
+        <a href="#team" class="rounded-full text-[#F5B942] bg-[#000080] font-bold  px-4 py-2 hover:bg-white/40">Mon équipe · <span id="team-count">0</span>/6</a>
+        <a href="#create" class="rounded-full text-[#F5B942] bg-[#000080] px-4 py-2 font-bold hover:bg-white/40 ">+ Nouvelle créature</a>
       </nav>
     </div>
   </header>
@@ -27,8 +27,8 @@
     <!-- ===================== RECHERCHE ===================== -->
     <section aria-label="Recherche et filtres" class="w-full flex flex-col gap-4 text-white">
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h1 class="font-display text-3xl font-extrabold">Trouver une créature</h1>
-        <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
+        <h1 class="font-display text-3xl text-[#F5B942] font-extrabold">Trouver une créature</h1>
+        <label class="flex w-full max-w-md flex-col text-[#F5B942] gap-1 text-sm font-bold">
           Rechercher par nom
           <input id="search" type="search" placeholder="Ex. Dark Magician" class="field text-gray-300 bg-gray-700 border-ink placeholder:text-white/50">
         </label>
@@ -36,12 +36,13 @@
       <!-- ===================== Filters ===================== -->
       <div id="filters" role="group" aria-label="Filtrer par type" class="flex flex-wrap gap-2 mb-2">
           <button type="button" class="chip bg-[#F5B942] w-auto h-auto hover:bg-[#F5B042]">ALL</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-4 w-4 mx-auto " src="./images/DARK.svg" alt="icon type DARK">DARK</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-4 w-4 mx-auto " src="./images/FIRE.svg" alt="icon type FIRE">FIRE</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-5 w-4  mx-auto " src="./images/WATER.svg" alt="icon type WATER">WATER</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-5 w-5 mx-auto " src="./images/WIND.svg" alt="icon type WIND">WIND</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-5 w-5 mx-auto " src="./images/EARTH.svg" alt="icon type EARTH">EARTH</button>
-          <button type="button" class="chip px-4 py-2 w-auto h-auto hover:bg-[#F5B942]"><img class="h-5 w-5 mx-auto " src="./images/LIGHT.svg" alt="icon type LIGHT">LIGHT</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/DARK.svg" alt="icon type DARK">DARK</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/FIRE.svg" alt="icon type FIRE">FIRE</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/WATER.svg" alt="icon type WATER">WATER</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/WIND.svg" alt="icon type WIND">WIND</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/EARTH.svg" alt="icon type EARTH">EARTH</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/LIGHT.svg" alt="icon type LIGHT">LIGHT</button>
+          <button type="button" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6" src="./images/DIVINE.svg" alt="icon type DIVINE">DIVINE</button>
       </div>
     </section>
 
@@ -54,7 +55,7 @@
       <section  aria-label="Créatures" class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-7 lg:grid-cols-3 lg:gap-7">
         <!-- card 1 -->  
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[url('../images/bg-univers.jpg')] rounded-md p-3 pb-4">
+        <article class="h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
             <img src="./images/card-01-exodia.jpg" alt="Exodia" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#001</span>
@@ -67,104 +68,104 @@
             </div>
           </div>
           <p class="text-sm mx-auto text-white font-bold">ATK : 4000  |   DEF : 3200</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
         <!-- card 2 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
+        <article class="h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#191970]">
             <img src="./images/card-02-darkest-sorcerer.png" alt="Darkest Sorcerer" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#002</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Darkest Sorcerer</h3>
+            <h3 class="font-display text-xl font-semibold text-white">Darkest Sorcerer</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">EFFECT</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DARK</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 3500  |   DEF : 2800</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-semibold text-white">ATK : 3500  |   DEF : 2800</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
         <!-- card 3 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
+        <article class="h-150  flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#F5B942]">
             <img src="./images/card-03-Red-Eyes Ultimate Dragon.jpg" alt="Red-Eyes Ultimate Dragon" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#003</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Red-Eyes Ultimate Dragon</h3>
+            <h3 class="font-display text-xl font-semibold text-white">Red-Eyes Ultimate Dragon</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">FUSION</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DARK</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 3600  |   DEF : 2900</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-semibold text-white">ATK : 3600  |   DEF : 2900</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
         <!-- card 4 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
+        <article class="h-150  flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#F5B942]">
             <img src="./images/card-04-Divinity Warrior of the Gods.png" alt="Divinity Warrior of the Gods" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#004</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Divinity Warrior of the Gods</h3>
+            <h3 class="font-display text-xl font-semibold text-white">Divinity Warrior of the Gods</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">FUSION</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DIVINE</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 4500  |   DEF : 4500</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-semibold text-white">ATK : 4500  |   DEF : 4500</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
         <!-- card 5 -->
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
+        <article class="h-150  flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#191970]">
             <img src="./images/card-05-Black Chaos Soldier - Envoy of the Apocalypse.webp" alt="Black Chaos Soldier - Envoy of the Apocalypse" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#005</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Black Chaos Soldier - Envoy of the Apocalypse</h3>
+            <h3 class="font-display text-xl font-semibold text-white">Black Chaos Soldier</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">FUSION</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DIVINE</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 8000  |   DEF : 6500</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-semibold text-white">ATK : 8000  |   DEF : 6500</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
         <!-- card 6 -->
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="h-170 flex flex-col gap-3 bg-[#FFE09A] rounded-md p-3 pb-4">
+        <article class="h-150  flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center justify-center rounded-xl bg-[#191970]">
             <img src="./images/card-06-Great Shadow Magus.png" alt="Great Shadow Magus" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">#006</span>
           </div>
           <div class="flex flex-col items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Great Shadow Magus</h3>
+            <h3 class="font-display text-xl font-semibold text-white">Great Shadow Magus</h3>
             <div class="flex gap-2 items-center justify-center">
               <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Rutial</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">DARK</span>
             </div>
           </div>
-          <p class="text-sm mx-auto font-semibold">ATK : 4000  |   DEF : 4000</p>
-          <p class="text-sm mx-auto font-bold shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-ink hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+          <p class="text-sm mx-auto font-semibold text-white">ATK : 4000  |   DEF : 4000</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         </article>
 
       </section>
@@ -181,17 +182,18 @@
               <img src="./images/card-03-Red-Eyes Ultimate Dragon.jpg" alt="Red-Eyes Ultimate Dragon" class="h-full w-full object-cover rounded-2xl">
           </div>
           <div class="flex items-center justify-between">
-            <h2 class="font-display text-3xl font-extrabold">Red-Eyes Ultimate Dragon</h2>
+            <h2 class="font-display text-3xl font-extrabold text-white">Red-Eyes Ultimate Dragon</h2>
             <span class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">Dragon</span>
             <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Fusion</span>
             
           </div>
-          <p class="text-sm">A fan-made ultimate dragon created from Red-Eyes monsters.</p>
+          <span class="flex items-center gap-2 font-bold text-[#F5B942]"><img class="h-7 w-7" src="./images/DARK.svg" alt="icon type DARK"> DARK</span>
+          <p class="text-sm text-white">A fan-made ultimate dragon created from Red-Eyes monsters.</p>
           <p><span class="font-bold  text-[#F5B942]">Effect: </span> Fan-made card: can revive Fusion Materials used for its Fusion Summon.</p>
           <div class="flex flex-col gap-2 text-sm">
             <p class="text-sm mx-auto font-bold shadow-md p-2">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Attaque</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[70%] rounded-full bg-[#F5B942]"></span></span><span class="text-right font-mono">3600</span></div>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Défense</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[60%] rounded-full bg-[#249DFF]"></span></span><span class="text-right font-mono">2800</span></div>
+            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold text-white">Attaque</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[70%] rounded-full bg-[#F5B942]"></span></span><span class="text-right font-mono text-white">3600</span></div>
+            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold text-white">Défense</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[60%] rounded-full bg-[#249DFF]"></span></span><span class="text-right font-mono text-white">2800</span></div>
           </div>
           <button type="button" class="btn-primary bg-[#F5B942] hover:bg-[#E5A932]">Ajouter à l'équipe</button>
         </section>
@@ -207,7 +209,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
 
@@ -216,7 +218,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
 
@@ -225,7 +227,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
 
@@ -234,7 +236,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
 
@@ -243,7 +245,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
 
@@ -252,7 +254,7 @@
               <div class="w-full h-1/2 bg-[#2490FF] border-white rounded-md" >
 
               </div>
-              <p class>nom</p>
+              <p class="text-white font-semibold">nom</p>
               <button class="p-2 bg-[#F5B942] mx-auto rounded-xl hover:bg-[#E5A932]">DEL</button>
             </div>
           </div>
@@ -262,7 +264,7 @@
 
 
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
-    <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-2xl bg-[#191970] text-white p-8">
+    <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-2xl bg-[#191970] text-[#F5B942] p-8">
       <div>
         <h2 class="font-display text-3xl font-extrabold">Nouvelle créature</h2>
         <p class="text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>
@@ -281,6 +283,7 @@
             <option value="">Choisir un type</option>
             <option>DARK</option><option>WIND</option><option>LIGHT</option>
             <option>EARTH</option><option>FIRE</option><option>WATER</option>
+            <option>DIVINE</option>
           </select>
           <span class="error-message text-sm font-normal"></span>
         </label>
@@ -317,7 +320,7 @@
 
   </main>
 
-  <footer class="mx-auto max-w-7xl px-8 pb-10 text-sm text-muted">
+  <footer class="mx-auto max-w-7xl text-[#F5B942]/40 px-8 pb-10 text-sm">
     Images : [source des images de votre univers]. Projet de fans réalisé dans le cadre d'une formation.
   </footer>
 
