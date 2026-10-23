@@ -39,6 +39,6 @@ Puis committez `dist/output.css` : GitHub Pages ne lance pas Tailwind pour vous.
 
 - **Univers choisi :** [ Yu-Gi-Oh!]
 - **Lien GitHub Pages :** [[lien](https://ismailmrakna-dev.github.io/cards-Yo-Gi/)]
-- **Sources des images :** [liens]
+- **Sources des images :** [https://yugioh.fandom.com/wiki/Exodia_the_Forbidden_One]
 - **Tests des expressions régulières :** [collez ici vos tests console : 2 valeurs valides et 2 invalides par expression]
 - **Bonus réalisés :** [liste]
