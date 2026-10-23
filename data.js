@@ -20,7 +20,7 @@
 //Level 7 → ⭐⭐⭐⭐⭐⭐⭐
 //Level 12 → ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 //type here means the monster's attribute (DARK, LIGHT, FIRE, WATER, EARTH, WIND or DIVINE)
-// Pensez à citer la source de vos images dans le README.
+// Pensez à citer la source de vos images dans le README. rank
 
 const creatures = [
   {
@@ -128,7 +128,7 @@ const creatures = [
     type: "DARK",
     monsterType: "Xyz",
     race: "Dragon",
-    stats: { atk: 3800, def: 3000, rank: 9 },
+    stats: { atk: 3800, def: 3000, level: 9 },
     image: "./images/card-10-Legendary Red-Eyes Black Dragon.jpg",
     description: "A fan-made Xyz dragon featuring Red-Eyes artwork.",
     effect: "Fan-made card: its pictured effect can inflict damage and summon a Red-Eyes monster."
@@ -198,11 +198,10 @@ const creatures = [
     type: "DARK",
     monsterType: "Effect",
     race: "Spellcaster",
-    level: "6 Stars",
     stats: {
       atk: 2000,
       def: 1700,
-      stars: 6
+      level: 6
     },
     image: "./images/card-16-Dark Magician Girl.jpg",
     description: "A spellcaster with a special ability.",

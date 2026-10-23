@@ -4,11 +4,39 @@
 // Les données viennent de data.js (la constante `creatures`).
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
-const {creatures}=require("./data");
-const creerCard=(obj)=>{
-    
 
+const creerCards=()=>{
+    const containerCard=document.querySelector("#cardsMonster")
+    const monsters=creatures.slice(6)
+    monsters.forEach((monst)=>{
+        let stars=""
+        for(let i=0;i<monst.stats.level; i++){
+            stars += "⭐"
+        }
+        const card=document.createElement("article")
+        card.className=`h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 
+        hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300"`
+        card.innerHTML=`
+          <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
+            <img src="${monst.image}" alt="${monst.name}" class="h-full w-full object-cover rounded-xl">
+            <span class="absolute left-3 top-2 font-mono text-sm text-white">${monst.id}</span>
+          </div>
+          <div class="flex flex-col items-center justify-between gap-2">
+            <h3 class="font-display text-xl text-white font-semibold">${monst.name}</h3>
+            <div class="flex gap-2 items-center justify-center">
+              <span class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">${monst.type}</span>
+              <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">${monst.monsterType}</span>
+              <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">${monst.race}</span>
+            </div>
+          </div>
+          <p class="text-sm mx-auto text-white font-bold">ATK: ${monst.stats.atk} | DEF: ${monst.stats.def}</p>
+          <p class="text-sm mx-auto font-bold text-white shadow-md">${stars}</p>
+          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
+        `;
+        containerCard.appendChild(card);
+    }) ;
 }
+creerCards()
 
 
 // -------------------------------------------------------------
