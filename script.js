@@ -7,7 +7,7 @@
 
 const creerCards=()=>{
     const containerCard=document.querySelector("#cardsMonster")
-    const monsters=creatures.slice(6)
+    const monsters=creatures.slice()
     monsters.forEach((monst)=>{
         let stars=""
         for(let i=0;i<monst.stats.level; i++){
