@@ -4,6 +4,11 @@
 // Les données viennent de data.js (la constante `creatures`).
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
+const {creatures}=require("./data");
+const creerCard=(obj)=>{
+    
+
+}
 
 
 // -------------------------------------------------------------
