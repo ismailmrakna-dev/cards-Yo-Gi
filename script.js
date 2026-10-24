@@ -38,7 +38,7 @@ const creerCards=()=>{
           afficheDetail(monst)
         })
         containerCard.appendChild(card);
-    }) ;
+    });
 }
 
 
@@ -55,9 +55,48 @@ creerCards()
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
-const afficheDetail=()=>{
-  const detail=document.getElementById("#detailCard")
-  
+function afficheDetail(monst){
+  const detail=document.querySelector("#detailCard")
+  const image=detail.querySelector("img")
+  const idMonster=detail.querySelector("#spanId")
+  const nom=detail.querySelector("h2")
+  const imgType=detail.querySelector("#imgType")
+  const type=detail.querySelector("#spanType")
+  const description=detail.querySelector("#pDescription")
+  const effect=detail.querySelector("#spEffect")
+  const lvl=detail.querySelector("#pLvl")
+  const atk=detail.querySelector("#spAtk")
+  const def=detail.querySelector("#spDef")
+  const atkVal=detail.querySelector("spAtkVal")
+  const defVal=detail.querySelector("#spDefVal")
+  let stars=""
+  for(let i=0;i<monst.stats.level; i++){
+      stars += "⭐"
+  } 
+  image.src=monst.image
+  image.alt=monst.name
+  nom.textContent=monst.name
+  idMonster.textContent=`#${monst.id} . Détail`
+  type.textContent=monst.type
+  for(const typec in typesCard){
+    if (typec === monst.type){
+      imgType.src=typesCard[typec]
+      break
+    }
+  }
+
+  description.textContent=monst.description
+  if(monst.effect===null){
+    effect.textContent="Aucune Effect"
+  }
+  else{
+    effect.textContent=monst.effect
+  }
+  lvl.textContent=stars
+  atkVal.textContent=monst.stats.atk
+  atk.style="w-[(monst.stats.atk)/5000]"
+  defVal.textContent=monst.stats.def
+  def.style="w-[(monst.stats.def)/5000]"
   
 }
 

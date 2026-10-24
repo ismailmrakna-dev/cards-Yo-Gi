@@ -99,7 +99,7 @@
         <section id="detailCard" aria-label="Détail de la créature"
           class="  flex flex-col gap-4 rounded-card border-2 text-white border-ink bg-[#191970] p-6 lg:w-96">
           <div class="flex items-center justify-between">
-            <span class="font-mono text-sm ">#003 · Détail</span>
+            <span id="spanId" class="font-mono text-sm ">#003 · Détail</span>
             <button type="button" aria-label="Fermer le détail"
               class="btn-outline bg-[#F5B942] text-white w-11 px-0 hover:bg-[#F5B942]/90">✕</button>
           </div>
@@ -109,24 +109,24 @@
           </div>
           <div class="flex items-center justify-between">
             <h2 class="font-display text-3xl font-extrabold text-white">Red-Eyes Ultimate Dragon</h2>
-            <span class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">Dragon</span>
-            <span class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Fusion</span>
+            <span id="spRace" class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">Dragon</span>
+            <span id="spMonsterType" class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Fusion</span>
 
           </div>
-          <span class="flex items-center gap-2 font-bold text-[#F5B942]"><img class="h-7 w-7" src="./images/DARK.svg"
-              alt="icon type DARK"> DARK</span>
-          <p class="text-sm text-white">A fan-made ultimate dragon created from Red-Eyes monsters.</p>
-          <p><span class="font-bold  text-[#F5B942]">Effect: </span> Fan-made card: can revive Fusion Materials used for
-            its Fusion Summon.</p>
+          <span  class="flex items-center gap-2 font-bold text-[#F5B942]"><img id="imgType" class="h-7 w-7" src="./images/DARK.svg"
+              alt="icon type DARK"><span id="spanType">DARK</span></span>
+          <p id="pDescription" class="text-sm text-white">A fan-made ultimate dragon created from Red-Eyes monsters.</p>
+          <p ><span class="font-bold  text-[#F5B942]">Effect: </span> <span id="spEffect">Fan-made card: can revive Fusion Materials used for
+            its Fusion Summon.</span></p>
           <div class="flex flex-col gap-2 text-sm">
-            <p class="text-sm mx-auto font-bold shadow-md p-2">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐</p>
+            <p id="pLvl" class="text-sm mx-auto font-bold shadow-md p-2">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐</p>
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span
                 class="font-bold text-white">Attaque</span><span class="h-3 rounded-full bg-ground"><span
-                  class="block h-3 w-[70%] rounded-full bg-[#F5B942]"></span></span><span
+                 id="spAtk" class="block h-3 w-[70%] rounded-full bg-[#F5B942]"></span></span><span id="spAtkVal"
                 class="text-right font-mono text-white">3600</span></div>
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span
                 class="font-bold text-white">Défense</span><span class="h-3 rounded-full bg-ground"><span
-                  class="block h-3 w-[60%] rounded-full bg-[#249DFF]"></span></span><span
+                  id="spDef" class="block h-3 w-[60%] rounded-full bg-[#249DFF]"></span></span><span id="spdefVal"
                 class="text-right font-mono text-white">2800</span></div>
           </div>
           <button type="button" class="btn-primary bg-[#F5B942] hover:bg-[#E5A932]">Ajouter à l'équipe</button>
