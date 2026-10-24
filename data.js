@@ -21,7 +21,14 @@
 //Level 12 → ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 //type here means the monster's attribute (DARK, LIGHT, FIRE, WATER, EARTH, WIND or DIVINE)
 // Pensez à citer la source de vos images dans le README. rank
-
+const types=[
+  {DARK:"./images/DARK.svg"},
+  {LIGHT:"./images/LIGHT.svg"},
+  {FIRE:"./images/FIRE.svg"},
+  {DIVINE:"./images/DIVINE.svg"},
+  {EARTH:"./images/EARTH.svg"},
+  {WIND:"./images/WIND.svg"}
+]
 const creatures = [
   {
     id: "#001",
