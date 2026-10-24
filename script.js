@@ -33,6 +33,10 @@ const creerCards=()=>{
           <p class="text-sm mx-auto font-bold text-white shadow-md">${stars}</p>
           <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         `;
+        card.style.cursor= "pointer";
+        card.addEventListener("click",()=>{
+          afficheDetail(monst)
+        })
         containerCard.appendChild(card);
     }) ;
 }
@@ -51,7 +55,11 @@ creerCards()
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
-
+const afficheDetail=()=>{
+  const detail=document.getElementById("#detailCard")
+  
+  
+}
 
 // -------------------------------------------------------------
 // 3. RECHERCHE
