@@ -70,7 +70,7 @@
       lg:grid-cols-3 lg:gap-7 lg:max-h-350 lg:h-340 lg:overflow-scroll ">
         <!-- card 0 -->
         <article
-          class="hidden h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
+          id="cardmonster" class="hidden h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
             <img src="" alt="" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white"></span>
@@ -134,45 +134,11 @@
 
         <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
         <section id="team" aria-label="Mon équipe" class="rounded-2xl text-white bg-[#191970]  p-6 lg:w-96">
-          <h2 class="block font-display mb-4 text-2xl font-extrabold">Mon équipe</h2>
+          <h2 class="block font-display mb-4 text-2xl text-[#F5B942] font-extrabold">Mon équipe</h2>
           <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
                        compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
           <div class="grid grid-cols-2 gap-4">
             <!-- member 1 -->
-
-            <div
-              class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
-              <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
-                <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-              </div>
-            </div>
-
-            <!-- member 2 -->
-            <div
-              class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
-              <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
-                <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-              </div>
-            </div>
-
-            <!-- member 3 -->
-            <div
-              class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
-              <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
-                <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-              </div>
-            </div>
-
-            <!-- member 4 -->
-            <div
-              class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
-              <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
-                <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-              </div>
-            </div>
-            <!-- member 5 -->
-            <div
-              class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
               <div
                 class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
                 <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
@@ -180,14 +146,45 @@
                 </div>
               </div>
 
-              <!-- member 6 -->
+              <!-- member 2 -->
               <div
                 class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
                 <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
                   <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
                 </div>
               </div>
-            </div>
+
+              <!-- member 3 -->
+              <div
+                class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
+                <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+                  <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
+                </div>
+              </div>
+
+              <!-- member 4 -->
+              <div
+                class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
+                <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+                  <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
+                </div>
+              </div>
+              <!-- member 5 -->
+              <div
+                class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
+                <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+                  <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
+                </div>
+              </div>
+
+                <!-- member 6 -->
+              <div
+                  class="equipe1 flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
+                  <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+                    <button class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
+                  </div>
+              </div>
+           </div>
         </section>
       </aside>
     </div>
@@ -195,7 +192,7 @@
 
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
     <section id="create" aria-label="Nouvelle créature"
-      class="flex flex-col gap-6 rounded-2xl bg-[#191970] text-[#F5B942] p-8">
+      class="flex flex-col gap-6 rounded-2xl bg-[#191970]  p-8">
       <div>
         <h2 class="font-display text-3xl font-extrabold">Nouvelle créature</h2>
         <p class="text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>

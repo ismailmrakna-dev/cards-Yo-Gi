@@ -208,5 +208,5 @@ const creatures = [
     effect: "Gains 300 ATK for every Dark Magician or Magician of Black Chaos in the Graveyard."
   },
 ];
-module.exports={creatures};
+
     

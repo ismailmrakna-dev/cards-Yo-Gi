@@ -36,7 +36,6 @@ const creerCards=()=>{
         containerCard.appendChild(card);
     }) ;
 }
-creerCards()
 
 
 // -------------------------------------------------------------
@@ -44,6 +43,7 @@ creerCards()
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
+creerCards()
 
 
 // -------------------------------------------------------------
