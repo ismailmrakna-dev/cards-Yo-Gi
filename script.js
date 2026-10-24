@@ -67,7 +67,7 @@ function afficheDetail(monst){
   const lvl=detail.querySelector("#pLvl")
   const atk=detail.querySelector("#spAtk")
   const def=detail.querySelector("#spDef")
-  const atkVal=detail.querySelector("spAtkVal")
+  const atkVal=detail.querySelector("#spAtkVal")
   const defVal=detail.querySelector("#spDefVal")
   let stars=""
   for(let i=0;i<monst.stats.level; i++){
@@ -93,11 +93,13 @@ function afficheDetail(monst){
     effect.textContent=monst.effect
   }
   lvl.textContent=stars
-  atkVal.textContent=monst.stats.atk
-  atk.style="w-[(monst.stats.atk)/5000]"
-  defVal.textContent=monst.stats.def
-  def.style="w-[(monst.stats.def)/5000]"
-  
+  atkVal.textContent= monst.stats.atk
+  let perA = Math.min((monst.stats.atk/5000)*100,100)
+  atk.style.width=perA+"%"
+  let perD=Math.min(((monst.stats.def)/5000)*100,100)
+  defVal.textContent= monst.stats.def
+  def.style.width=perD+"%" 
+
 }
 
 // -------------------------------------------------------------
