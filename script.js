@@ -14,7 +14,7 @@ const creerCards=()=>{
             stars += "⭐"
         }
         const card=document.createElement("article")
-        card.className=`h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 
+        card.className=`cardMonst h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 
         hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300"`
         card.innerHTML=`
           <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
@@ -62,6 +62,9 @@ function afficheDetail(monst){
   const nom=detail.querySelector("h2")
   const imgType=detail.querySelector("#imgType")
   const type=detail.querySelector("#spanType")
+  const monstype=detail.querySelector("#spMonsterType")
+  const race=detail.querySelector("#spRace")
+
   const description=detail.querySelector("#pDescription")
   const effect=detail.querySelector("#spEffect")
   const lvl=detail.querySelector("#pLvl")
@@ -76,6 +79,8 @@ function afficheDetail(monst){
   image.src=monst.image
   image.alt=monst.name
   nom.textContent=monst.name
+  monstype.textContent=monst.monsterType
+  race.textContent=monst.race
   idMonster.textContent=`#${monst.id} . Détail`
   type.textContent=monst.type
   for(const typec in typesCard){
@@ -84,6 +89,7 @@ function afficheDetail(monst){
       break
     }
   }
+
 
   description.textContent=monst.description
   if(monst.effect===null){
@@ -107,6 +113,25 @@ function afficheDetail(monst){
 // La liste se met à jour pendant la saisie d'un nom
 // (sans tenir compte des majuscules).
 // -------------------------------------------------------------
+function searchNom(){
+  const search=document.querySelector("#search")
+  const cards=document.querySelectorAll(".cardMonst")
+  search.addEventListener("input",(event)=>{
+    const name=event.target.value.toLowerCase().trim()
+    cards.forEach((card)=>{
+      const  text=card.querySelector("h3")
+      const targCard=text.textContent.toLowerCase()
+      if(targCard.includes(name)){
+        card.style.display=""
+        
+      }
+      else card.style.display="none"
+    })
+    
+
+  })
+}
+ searchNom()
 
 
 // -------------------------------------------------------------
