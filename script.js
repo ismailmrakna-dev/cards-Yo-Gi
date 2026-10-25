@@ -176,6 +176,10 @@ filtreType()
 // champ, et n'ajoutez jamais une créature invalide.
 // -------------------------------------------------------------
 
+function creerOneCard(){
+  
+}
+
 
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE

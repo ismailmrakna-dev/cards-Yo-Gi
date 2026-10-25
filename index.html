@@ -217,30 +217,49 @@
             <option>WATER</option>
             <option>DIVINE</option>
           </select>
+        </label>  
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Monster Type
+          <select name="monstertype" class="field w-full text-gray-400 font-normal">
+            <option value="">Choisir un type</option>
+            <option>Fusion</option>
+            <option>Ritual</option>
+            <option>Normal</option>
+            <option>Effect</option>
+          </select>
           <span class="error-message text-sm font-normal"></span>
         </label>
+
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Race
+          <input name="race" type="text" placeholder="Nom de la créature" class="field text-gray-400 font-normal">
+          <span class="error-message text-sm font-normal"></span>
+        </label>
+
         <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Niveau
-          <input name="level" type="text" placeholder="Base, Niveau 1…" class="field text-gray-400 font-normal">
+          <input name="level" type="text" placeholder="Niveau 1 to 12" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Statistique 1
-          <input name="stat1" type="text" placeholder="0 à 999" class="field text-gray-400 font-normal">
+
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Attaque
+          <input name="stat1" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Statistique 2
-          <input name="stat2" type="text" placeholder="0 à 999" class="field text-gray-400 font-normal">
+    
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Defence
+          <input name="stat2" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Statistique 3
-          <input name="stat3" type="text" placeholder="0 à 999" class="field text-gray-400 font-normal">
-          <span class="error-message text-sm font-normal"></span>
-        </label>
+      
         <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Lien de l'image
           <input name="image" type="text" placeholder="https://…/image.png" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
         <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Description
           <textarea name="description" rows="3" placeholder="10 à 200 caractères"
+            class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
+          <span class="error-message text-sm font-normal"></span>
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Effect 
+          <textarea name="effectDescription" rows="2" placeholder="10 à 200 caractères"
             class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
           <span class="error-message text-sm font-normal"></span>
         </label>
