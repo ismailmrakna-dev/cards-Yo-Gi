@@ -177,7 +177,11 @@ filtreType()
 // -------------------------------------------------------------
 
 function creerOneCard(){
+  const form= document.querySelector("#creature-form")
   
+
+  
+
 }
 
 
