@@ -24,7 +24,7 @@ const creerCards=()=>{
           <div class="flex flex-col items-center justify-between gap-2">
             <h3 class="font-display text-xl text-white font-semibold">${monst.name}</h3>
             <div class="flex gap-2 items-center justify-center">
-              <span class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">${monst.type}</span>
+              <span id="sptypecard" class="sptypecard rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">${monst.type}</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">${monst.monsterType}</span>
               <span class="rounded-full bg-[#191970] px-3 py-1 text-sm font-bold text-white">${monst.race}</span>
             </div>
@@ -140,6 +140,33 @@ function searchNom(){
 // « Tous » réinitialise le filtre.
 // La recherche et le filtre fonctionnent ENSEMBLE.
 // -------------------------------------------------------------
+function filtreType(){
+  const filter=document.querySelector("#filters")
+  const cards=document.querySelectorAll(".cardMonst")
+  filter.addEventListener("click",(event)=>{
+    const clickbtn = event.target.closest("#btn-filter");
+    if(!clickbtn) return
+  // 3. Filter the items
+    filter.querySelectorAll("#btn-filter").forEach(btn=>btn.style.background="white")
+    clickbtn.style.background="#F5B942"
+    const filterValue = clickbtn.textContent.toLowerCase().trim()
+    cards.forEach((card)=>{
+      if(filterValue==="all"){
+        card.style.display=""
+      }
+      else{
+        const text=card.querySelector("#sptypecard")
+        const targCard=text.textContent.toLowerCase()
+        if(targCard === filterValue){
+          card.style.display=""
+        }
+        else card.style.display="none"
+      }
+      
+    })
+  })
+}
+filtreType()
 
 
 // -------------------------------------------------------------
