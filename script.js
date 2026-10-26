@@ -352,7 +352,10 @@ function clearError() {
 // Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
 // écouteur sur la grille et UN SEUL sur l'équipe (délégation).
 // -------------------------------------------------------------
+function monEquipe(){
+  
 
+}
 
 // -------------------------------------------------------------
 // 7. RÈGLES DE L'ÉQUIPE
