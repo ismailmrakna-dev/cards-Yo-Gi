@@ -198,11 +198,11 @@
         <p class="text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>
       </div>
       <form id="creature-form" novalidate class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Numéro
+        <label id="idMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Numéro
           <input name="id" type="text" placeholder="#010" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Nom
+        <label id="nomMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Nom
           <input name="name" type="text" placeholder="Nom de la créature" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
@@ -229,36 +229,36 @@
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Race
+        <label id="raceMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Race
           <input name="race" type="text" placeholder="Nom de la créature" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Niveau
+        <label id="lvlMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Niveau
           <input name="level" type="text" placeholder="Niveau 1 to 12" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Attaque
+        <label id="atkMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Attaque
           <input name="stat1" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
     
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Defence
+        <label id="defMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Defence
           <input name="stat2" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
       
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Lien de l'image
+        <label id="imgMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Lien de l'image
           <input name="image" type="text" placeholder="https://…/image.png" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Description
+        <label id="descMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Description
           <textarea name="description" rows="3" placeholder="10 à 200 caractères"
             class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Effect 
+        <label id="effMonster" class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Effect 
           <textarea name="effectDescription" rows="2" placeholder="10 à 200 caractères"
             class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
           <span class="error-message text-sm font-normal"></span>

@@ -178,11 +178,37 @@ filtreType()
 
 function creerOneCard(){
   const form= document.querySelector("#creature-form")
-  
-
-  
+  form.addEventListener('submit',(event)=>{
+     event.preventDefault()
+     const id = form.elements['id'];
+     const name = form.elements['name'];
+     if(!id.value.includes("#") && id.value.length===3){
+      const message=id.querySelector("span")
+      message.textContent="!Valid"
+     }
+     else{
+      const message=id.querySelector(".error-message")
+      message.textContent="!No Valid ID"
+     }
+     
+  })
 
 }
+function showError(id,message){
+  const form= document.querySelector("#creature-form")
+  const label=form.getElementById('id');
+  const error=label.querySelector('.error-message');
+  error.textContent=message
+  return error
+}
+function clearError(){
+  const errors=document.querySelectorAll(".error-message")
+  errors.forEach(msg => {
+    msg.textContent ='';
+    msg.style.display = 'none';
+  });
+}
+
 
 
 // -------------------------------------------------------------
