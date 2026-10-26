@@ -175,151 +175,177 @@ filtreType()
 // (voir le tableau du brief). Affichez le message d'erreur sous le
 // champ, et n'ajoutez jamais une créature invalide.
 // -------------------------------------------------------------
+function creerOneCard() {
+  const form = document.querySelector("#creature-form");
 
-function creerOneCard(){
-  const form = document.querySelector("#creature-form")
-  form.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const { id, name, type, monstertype, raceMonster, lvlMonster,
-      atkMonster, defMonster, imgMonster, descMonster, effMonster
-    } = form.elements
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    clearError();
 
-    //id Validation
-    id.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val[0] === "#" && val.length === 4) {
-      showError(1,"!Valid")
-    }
-    else {
-      showError(1,"!No Valid ID")
-    }
-  })
+    
+    const {
+      id,
+      name,
+      type,
+      monstertype,
+      race,
+      lvlMonster,
+      atkMonster,
+      defMonster,
+      imgMonster,
+      descMonster,
+      effMonster
+    } = form.elements;
 
-  //name Validition
-  name.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
-    }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
+    let isValid = true;
 
-  //type validation
-  type.addEventListener("onchange", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.onchange()) {
-      showError(3,"!Valid")
+    if (!idIsValid(id.value)) {
+      showError(id, "ID invalide (ex: #001)");
+      isValid = false;
     }
-    else {
-      showError(3,"!No Valid Name")
-    }
-  })
 
-  //  Monster type 
-  monstertype.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!nomIsValid(name.value)) {
+      showError(name, "Nom invalide (2-30 caractères)");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  // race
-  raceMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!typeIsValid(type.value)) {
+      showError(type, "Veuillez choisir un attribut");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  // level Monster
-  lvlMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!monsterTypeIsValid(monstertype.value)) {
+      showError(monstertype, "Veuillez choisir un type de monstre");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  // statics Monster ATK
-  atkMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!raceIsValid(race.value)) {
+      showError(race, "Race invalide");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  // statics Monster DEF
-  defMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!levelIsValid(lvlMonster.value)) {
+      showError(lvlMonster, "Niveau entre 1 et 12");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  //image
-  imgMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!atkIsValid(atkMonster.value)) {
+      showError(atkMonster, "ATK entre 0 et 9999");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  // description
-  descMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
+    if (!atkIsValid(defMonster.value)) {
+      showError(defMonster, "DEF entre 0 et 9999");
+      isValid = false;
     }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
-   // Effect Description
-  effMonster.addEventListener("input", (even) => {
-    const val = even.target.value.toLowerCase().trim()
-    if (val.length>3 && val.length<30 ) {
-      showError(2,"!Valid")
-    }
-    else {
-      showError(2,"!No Valid Name")
-    }
-  })
 
-  })
+    if (!imgIsValid(imgMonster.value)) {
+      showError(imgMonster, "Lien d'image invalide (.png, .jpg...)");
+      isValid = false;
+    }
 
-}
-function showError(num, message) {
-  
-  const error = document.querySelector(`form .error-message :nth-child(${num}`);
-  error.innerHTML = `<p>${message}</p>`
-}
-function clearError() {
-  const errors = document.querySelectorAll(".error-message")
-  errors.forEach(msg => {
-    msg.textContent = '';
-    msg.style.display = 'none';
+    if (!descIsValid(descMonster.value)) {
+      showError(descMonster, "Description entre 10 et 200 caractères");
+      isValid = false;
+    }
+
+    if (!effectIsValid(effMonster.value)) {
+      showError(effMonster, "Effet entre 10 et 200 caractères (ou vide)");
+      isValid = false;
+    }
+
+    
+    if (isValid) {
+      const newMonster = {
+        id: id.value,
+        name: name.value.trim(),
+        type: type.value,        
+        monsterType: monstertype.value,        
+        race: race.value.trim(),
+        stats:{atk: Number(atkMonster.value),
+        def: Number(defMonster.value), level: Number(lvlMonster.value)},
+        image: imgMonster.value.trim(),
+        description: descMonster.value.trim(),
+        effect: effMonster.value.trim() || null
+      };
+      creatures.push(newMonster);
+
+      
+      document.querySelector("#cardsMonster").innerHTML = "";
+      creerCards(); 
+
+      form.reset();
+      clearError();
+
+      alert("Créature ajoutée avec succès !");
+      console.log("Nouvelle créature :", newMonster);
+    }
+    
   });
+
 }
 creerOneCard()
+
+
+function idIsValid(id) {
+  return /^#\d{3}$/.test(id);
+}
+
+function nomIsValid(nom) {
+  return /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 '-]{1,29}$/.test(nom);
+}
+
+function typeIsValid(type) {
+  const valid = ["DARK", "LIGHT", "FIRE", "WATER", "EARTH", "WIND", "DIVINE"];
+  return valid.includes(type);
+}
+
+function monsterTypeIsValid(type) {
+  const valid = ["Normal", "Effect", "Fusion", "Ritual"];
+  return valid.includes(type);
+}
+
+function raceIsValid(race) {
+  return /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ '-]{1,20}$/.test(race);
+}
+
+function levelIsValid(level) {
+  return /^([1-9]|1[0-2])$/.test(level);
+}
+
+function atkIsValid(value) {
+  return /^\d{1,4}$/.test(value) && Number(value) <= 9999;
+}
+
+function imgIsValid(img) {
+  return /^https?:\/\/.+\.(png|jpg|jpeg|webp|gif)$/i.test(img);
+}
+
+function descIsValid(text) {
+  const len = text.trim().length;
+  return len >= 10 && len <= 200;
+}
+
+function effectIsValid(text) {
+  if (text.trim() === "") return true; // optional
+  const len = text.trim().length;
+  return len >= 10 && len <= 200;
+}
+
+
+function showError(input, message) {
+  const errorSpan = input.parentElement.querySelector(".error-message");
+  errorSpan.textContent = message;
+  errorSpan.style.color = "#ff4d4d";
+}
+
+function clearError() {
+  document.querySelectorAll(".error-message").forEach(span => {
+    span.textContent = "";
+  });
+}
+
+
 
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE
