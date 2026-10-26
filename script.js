@@ -5,18 +5,18 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
-const creerCards=()=>{
-    const containerCard=document.querySelector("#cardsMonster")
-    const monsters=creatures.slice()
-    monsters.forEach((monst)=>{
-        let stars=""
-        for(let i=0;i<monst.stats.level; i++){
-            stars += "⭐"
-        }
-        const card=document.createElement("article")
-        card.className=`cardMonst h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 
+const creerCards = () => {
+  const containerCard = document.querySelector("#cardsMonster")
+  const monsters = creatures.slice()
+  monsters.forEach((monst) => {
+    let stars = ""
+    for (let i = 0; i < monst.stats.level; i++) {
+      stars += "⭐"
+    }
+    const card = document.createElement("article")
+    card.className = `cardMonst h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 
         hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300"`
-        card.innerHTML=`
+    card.innerHTML = `
           <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
             <img src="${monst.image}" alt="${monst.name}" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white">${monst.id}</span>
@@ -33,12 +33,12 @@ const creerCards=()=>{
           <p class="text-sm mx-auto font-bold text-white shadow-md">${stars}</p>
           <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         `;
-        card.style.cursor= "pointer";
-        card.addEventListener("click",()=>{
-          afficheDetail(monst)
-        })
-        containerCard.appendChild(card);
-    });
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
+      afficheDetail(monst)
+    })
+    containerCard.appendChild(card);
+  });
 }
 
 
@@ -55,56 +55,56 @@ creerCards()
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
-function afficheDetail(monst){
-  const detail=document.querySelector("#detailCard")
-  const image=detail.querySelector("img")
-  const idMonster=detail.querySelector("#spanId")
-  const nom=detail.querySelector("h2")
-  const imgType=detail.querySelector("#imgType")
-  const type=detail.querySelector("#spanType")
-  const monstype=detail.querySelector("#spMonsterType")
-  const race=detail.querySelector("#spRace")
+function afficheDetail(monst) {
+  const detail = document.querySelector("#detailCard")
+  const image = detail.querySelector("img")
+  const idMonster = detail.querySelector("#spanId")
+  const nom = detail.querySelector("h2")
+  const imgType = detail.querySelector("#imgType")
+  const type = detail.querySelector("#spanType")
+  const monstype = detail.querySelector("#spMonsterType")
+  const race = detail.querySelector("#spRace")
 
-  const description=detail.querySelector("#pDescription")
-  const effect=detail.querySelector("#spEffect")
-  const lvl=detail.querySelector("#pLvl")
-  const atk=detail.querySelector("#spAtk")
-  const def=detail.querySelector("#spDef")
-  const atkVal=detail.querySelector("#spAtkVal")
-  const defVal=detail.querySelector("#spDefVal")
-  let stars=""
-  for(let i=0;i<monst.stats.level; i++){
-      stars += "⭐"
-  } 
-  image.src=monst.image
-  image.alt=monst.name
-  nom.textContent=monst.name
-  monstype.textContent=monst.monsterType
-  race.textContent=monst.race
-  idMonster.textContent=`#${monst.id} . Détail`
-  type.textContent=monst.type
-  for(const typec in typesCard){
-    if (typec === monst.type){
-      imgType.src=typesCard[typec]
+  const description = detail.querySelector("#pDescription")
+  const effect = detail.querySelector("#spEffect")
+  const lvl = detail.querySelector("#pLvl")
+  const atk = detail.querySelector("#spAtk")
+  const def = detail.querySelector("#spDef")
+  const atkVal = detail.querySelector("#spAtkVal")
+  const defVal = detail.querySelector("#spDefVal")
+  let stars = ""
+  for (let i = 0; i < monst.stats.level; i++) {
+    stars += "⭐"
+  }
+  image.src = monst.image
+  image.alt = monst.name
+  nom.textContent = monst.name
+  monstype.textContent = monst.monsterType
+  race.textContent = monst.race
+  idMonster.textContent = `#${monst.id} . Détail`
+  type.textContent = monst.type
+  for (const typec in typesCard) {
+    if (typec === monst.type) {
+      imgType.src = typesCard[typec]
       break
     }
   }
 
 
-  description.textContent=monst.description
-  if(monst.effect===null){
-    effect.textContent="Aucune Effect"
+  description.textContent = monst.description
+  if (monst.effect === null) {
+    effect.textContent = "Aucune Effect"
   }
-  else{
-    effect.textContent=monst.effect
+  else {
+    effect.textContent = monst.effect
   }
-  lvl.textContent=stars
-  atkVal.textContent= monst.stats.atk
-  let perA = Math.min((monst.stats.atk/5000)*100,100)
-  atk.style.width=perA+"%"
-  let perD=Math.min(((monst.stats.def)/5000)*100,100)
-  defVal.textContent= monst.stats.def
-  def.style.width=perD+"%" 
+  lvl.textContent = stars
+  atkVal.textContent = monst.stats.atk
+  let perA = Math.min((monst.stats.atk / 5000) * 100, 100)
+  atk.style.width = perA + "%"
+  let perD = Math.min(((monst.stats.def) / 5000) * 100, 100)
+  defVal.textContent = monst.stats.def
+  def.style.width = perD + "%"
 
 }
 
@@ -113,25 +113,25 @@ function afficheDetail(monst){
 // La liste se met à jour pendant la saisie d'un nom
 // (sans tenir compte des majuscules).
 // -------------------------------------------------------------
-function searchNom(){
-  const search=document.querySelector("#search")
-  const cards=document.querySelectorAll(".cardMonst")
-  search.addEventListener("input",(event)=>{
-    const name=event.target.value.toLowerCase().trim()
-    cards.forEach((card)=>{
-      const  text=card.querySelector("h3")
-      const targCard=text.textContent.toLowerCase()
-      if(targCard.includes(name)){
-        card.style.display=""
-        
+function searchNom() {
+  const search = document.querySelector("#search")
+  const cards = document.querySelectorAll(".cardMonst")
+  search.addEventListener("input", (event) => {
+    const name = event.target.value.toLowerCase().trim()
+    cards.forEach((card) => {
+      const text = card.querySelector("h3")
+      const targCard = text.textContent.toLowerCase()
+      if (targCard.includes(name)) {
+        card.style.display = ""
+
       }
-      else card.style.display="none"
+      else card.style.display = "none"
     })
-    
+
 
   })
 }
- searchNom()
+searchNom()
 
 
 // -------------------------------------------------------------
@@ -140,29 +140,29 @@ function searchNom(){
 // « Tous » réinitialise le filtre.
 // La recherche et le filtre fonctionnent ENSEMBLE.
 // -------------------------------------------------------------
-function filtreType(){
-  const filter=document.querySelector("#filters")
-  const cards=document.querySelectorAll(".cardMonst")
-  filter.addEventListener("click",(event)=>{
+function filtreType() {
+  const filter = document.querySelector("#filters")
+  const cards = document.querySelectorAll(".cardMonst")
+  filter.addEventListener("click", (event) => {
     const clickbtn = event.target.closest("#btn-filter");
-    if(!clickbtn) return
-  // 3. Filter the items
-    filter.querySelectorAll("#btn-filter").forEach(btn=>btn.style.background="white")
-    clickbtn.style.background="#F5B942"
+    if (!clickbtn) return
+    // 3. Filter the items
+    filter.querySelectorAll("#btn-filter").forEach(btn => btn.style.background = "white")
+    clickbtn.style.background = "#F5B942"
     const filterValue = clickbtn.textContent.toLowerCase().trim()
-    cards.forEach((card)=>{
-      if(filterValue==="all"){
-        card.style.display=""
+    cards.forEach((card) => {
+      if (filterValue === "all") {
+        card.style.display = ""
       }
-      else{
-        const text=card.querySelector("#sptypecard")
-        const targCard=text.textContent.toLowerCase()
-        if(targCard === filterValue){
-          card.style.display=""
+      else {
+        const text = card.querySelector("#sptypecard")
+        const targCard = text.textContent.toLowerCase()
+        if (targCard === filterValue) {
+          card.style.display = ""
         }
-        else card.style.display="none"
+        else card.style.display = "none"
       }
-      
+
     })
   })
 }
@@ -177,39 +177,149 @@ filtreType()
 // -------------------------------------------------------------
 
 function creerOneCard(){
-  const form= document.querySelector("#creature-form")
-  form.addEventListener('submit',(event)=>{
-     event.preventDefault()
-     const id = form.elements['id'];
-     const name = form.elements['name'];
-     if(!id.value.includes("#") && id.value.length===3){
-      const message=id.querySelector("span")
-      message.textContent="!Valid"
-     }
-     else{
-      const message=id.querySelector(".error-message")
-      message.textContent="!No Valid ID"
-     }
-     
+  const form = document.querySelector("#creature-form")
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const { id, name, type, monstertype, raceMonster, lvlMonster,
+      atkMonster, defMonster, imgMonster, descMonster, effMonster
+    } = form.elements
+
+    //id Validation
+    id.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val[0] === "#" && val.length === 4) {
+      showError(1,"!Valid")
+    }
+    else {
+      showError(1,"!No Valid ID")
+    }
+  })
+
+  //name Validition
+  name.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  //type validation
+  type.addEventListener("onchange", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.onchange()) {
+      showError(3,"!Valid")
+    }
+    else {
+      showError(3,"!No Valid Name")
+    }
+  })
+
+  //  Monster type 
+  monstertype.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  // race
+  raceMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  // level Monster
+  lvlMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  // statics Monster ATK
+  atkMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  // statics Monster DEF
+  defMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  //image
+  imgMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
+  // description
+  descMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+   // Effect Description
+  effMonster.addEventListener("input", (even) => {
+    const val = even.target.value.toLowerCase().trim()
+    if (val.length>3 && val.length<30 ) {
+      showError(2,"!Valid")
+    }
+    else {
+      showError(2,"!No Valid Name")
+    }
+  })
+
   })
 
 }
-function showError(id,message){
-  const form= document.querySelector("#creature-form")
-  const label=form.getElementById('id');
-  const error=label.querySelector('.error-message');
-  error.textContent=message
-  return error
+function showError(num, message) {
+  
+  const error = document.querySelector(`form .error-message :nth-child(${num}`);
+  error.innerHTML = `<p>${message}</p>`
 }
-function clearError(){
-  const errors=document.querySelectorAll(".error-message")
+function clearError() {
+  const errors = document.querySelectorAll(".error-message")
   errors.forEach(msg => {
-    msg.textContent ='';
+    msg.textContent = '';
     msg.style.display = 'none';
   });
 }
-
-
+creerOneCard()
 
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE
