@@ -4,7 +4,7 @@
 // Les données viennent de data.js (la constante `creatures`).
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
-
+loadData()
 let equipeMembers = []
 const creerCards = (creatures) => {
   const containerCard = document.querySelector("#cardsMonster")
@@ -280,6 +280,7 @@ function creerOneCard() {
         effect: effMonster.value.trim() || null
       };
       creatures.push(newMonster);
+      saveCreatures()
 
 
       document.querySelector("#cardsMonster").innerHTML = "";
@@ -386,6 +387,7 @@ function addToEquipe(monst) {
   }
 
   equipeMembers.push(monst)
+  saveTeam()
   message.textContent = `${monst.name} a été ajouté à votre equipe`
   message.style.color = "#4ade80"
   teamdisplay()
@@ -520,12 +522,10 @@ function fillCompareSelects() {
 
   select1.innerHTML = `<option value="">Choisir la première carte</option>`;
   select2.innerHTML = `<option value="">Choisir la deuxième carte</option>`;
-
   creatures.forEach((c) => {
     const option1 = document.createElement("option");
     option1.value = c.id;
     option1.textContent = c.name;
-
     const option2 = document.createElement("option");
     option2.value = c.id;
     option2.textContent = c.name;
@@ -601,5 +601,16 @@ function saveTeam() {
 function saveCreatures() {
   localStorage.setItem("YoGiOh-creatures", JSON.stringify(creatures));
 }
-  
+
+
+function loadData() {
+  const savedTeam = localStorage.getItem("yugioh-team");
+  if (savedTeam) {
+    equipeMembers = JSON.parse(savedTeam);
+  }
+  const savedCreatures = localStorage.getItem("yugioh-creatures");
+  if (savedCreatures) {
+    creatures = JSON.parse(savedCreatures);
+  }
+}  
 
