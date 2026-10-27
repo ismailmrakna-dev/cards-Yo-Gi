@@ -476,8 +476,7 @@ function buttonsUpdate() {
     }
   })
 }
-teamdisplay()
-buttonsUpdate()
+
 
 
 
@@ -495,7 +494,29 @@ buttonsUpdate()
 
 //show tri
 function showtri(){
+  const containerCard = document.querySelector("#cardsMonster")
   const copy=creatures.slice()
-  copy.sort()
+  copy.sort((a, b) => (b.stats.atk + b.stats.def ) - (a.stats.atk + a.stats.def ))
+  const filter = document.querySelector("#filters")
+  const clickbtn =document.querySelector("#btn-sort");
+  if (!clickbtn) {
+    creerCards(creatures)
+    return
+  }
+  clickbtn.addEventListener("click", () => {
+    containerCard.innerHTML=""
+    filter.querySelectorAll("#btn-filter").forEach(btn => btn.style.background = "white")
+    clickbtn.style.background = "#F5B942"
+    creerCards(copy)
+    })
+}
+showtri()
+
+// comparaison 2 cards
+function compareCards(){
   
 }
+
+  
+  
+
