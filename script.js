@@ -5,6 +5,7 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
+const equipeMembers=[]
 const creerCards = () => {
   const containerCard = document.querySelector("#cardsMonster")
   const monsters = creatures.slice()
@@ -128,7 +129,7 @@ function searchNom() {
       else card.style.display = "none"
     })
 
-
+    
   })
 }
 searchNom()
@@ -352,9 +353,45 @@ function clearError() {
 // Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
 // écouteur sur la grille et UN SEUL sur l'équipe (délégation).
 // -------------------------------------------------------------
-function monEquipe(){
-  
 
+function addToEquipe(monst){
+  const message=document.querySelector('#teamMessage')
+  let alreadyAdded=false
+  const
+  for(let i=0; i<equipeMembers.length;i++){
+    if(equipeMembers[i].id === monst.id){
+      alreadyAdded=true
+    }
+  }
+  if(alreadyAdded){
+    message.textContent=`${monst.name} Est déjà dans votre equipe`
+    message.style.color="#f87171"
+    return
+  }
+  if(equipeMembers.length>=6){
+    message.textContent=`votre equipe est Pleine (Max:6 Cards)`
+    message.style.color="#f87171"
+    return
+  }
+  equipeMembers.push(monst)
+  message.textContent=`${monst.name} a été ajouté à votre equipe`
+  message.style.color="#4ade80"
+  Teamdisplay()
+  buttonsUpdate()
+
+   const equipeCont=document.querySelector("#teamspace")
+   const img=monst.image
+   const members=equipeCont.document.querySelectorAll("#equipe")
+   members.forEach((ind,member)=>{
+    if(equipecounter<=6){
+      const ele=document.createElement("div")
+      ele.className="equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md"
+      ele.innerHTML=`<div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+      
+                  <button id="delCard" class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
+                </div>`
+    }
+   })
 }
 
 // -------------------------------------------------------------
