@@ -295,6 +295,7 @@ function creerOneCard() {
   });
 
 }
+
 creerOneCard()
 
 
@@ -395,6 +396,8 @@ function teamdisplay() {
   const title = document.querySelector("#team h2")
   if (title) {
     title.textContent = `Mon équipe (${equipeMembers.length}/6)`;
+    const equipe=document.querySelector("#team-count")
+    equipe.textContent=`${equipeMembers.length}`
   }
   equipeCont.innerHTML = ""
   for (let i = 0; i < 6; i++) {
@@ -447,6 +450,13 @@ function removeFromTeam() {
   teamdisplay()
   buttonsUpdate()
 }
+
+// -------------------------------------------------------------
+// 7. RÈGLES DE L'ÉQUIPE
+// 6 créatures au maximum, pas de doublon, un message clair quand
+// une action est refusée, et un compteur (x/6).
+// -------------------------------------------------------------
+
 function buttonsUpdate() {
   const buttons = document.querySelectorAll(".btn-ajouter")
   buttons.forEach((btn) => {
@@ -476,18 +486,6 @@ function buttonsUpdate() {
     }
   })
 }
-
-
-
-
-
-// -------------------------------------------------------------
-// 7. RÈGLES DE L'ÉQUIPE
-// 6 créatures au maximum, pas de doublon, un message clair quand
-// une action est refusée, et un compteur (x/6).
-// -------------------------------------------------------------
-
-
 // -------------------------------------------------------------
 // BONUS : LocalStorage, Fetch API, tri, comparaison
 // -------------------------------------------------------------
@@ -500,6 +498,8 @@ function showtri(){
   const filter = document.querySelector("#filters")
   const clickbtn =document.querySelector("#btn-sort");
   if (!clickbtn) {
+    containerCard.innerHTML=""
+    filtreType()
     creerCards(creatures)
     return
   }
@@ -508,14 +508,88 @@ function showtri(){
     filter.querySelectorAll("#btn-filter").forEach(btn => btn.style.background = "white")
     clickbtn.style.background = "#F5B942"
     creerCards(copy)
+    filtreType()
     })
 }
 showtri()
 
 // comparaison 2 cards
-function compareCards(){
-  
+function fillCompareSelects() {
+  const select1 = document.querySelector("#card1");
+  const select2 = document.querySelector("#card2");
+
+  select1.innerHTML = `<option value="">Choisir la première carte</option>`;
+  select2.innerHTML = `<option value="">Choisir la deuxième carte</option>`;
+
+  creatures.forEach((c) => {
+    const option1 = document.createElement("option");
+    option1.value = c.id;
+    option1.textContent = c.name;
+
+    const option2 = document.createElement("option");
+    option2.value = c.id;
+    option2.textContent = c.name;
+
+    select1.appendChild(option1);
+    select2.appendChild(option2);
+  });
 }
+fillCompareSelects()
+function compareCards() {
+  const id1 = document.querySelector("#card1").value;
+  const id2 = document.querySelector("#card2").value;
+  const resultDiv = document.querySelector("#compare-result");
+
+  if (!id1 || !id2) {
+    alert("Veuillez choisir deux cartes");
+    return;
+  }
+
+  if (id1 === id2) {
+    alert("Veuillez choisir deux cartes différentes");
+    return;
+  }
+
+  const card1 = creatures.find(c => c.id === id1);
+  const card2 = creatures.find(c => c.id === id2);
+
+  function winner(val1, val2) {
+    if (val1 > val2) return "text-green-400 font-bold";
+    if (val1 < val2) return "text-red-400";
+    return "text-yellow-400";
+  }
+
+  resultDiv.innerHTML = `
+    <div class="font-bold text-[#F5B942]">Statistique</div>
+    <div class="font-bold">${card1.name}</div>
+    <div class="font-bold">${card2.name}</div>
+
+    <div>ATK</div>
+    <div class="${winner(card1.stats.atk, card2.stats.atk)}">${card1.stats.atk}</div>
+    <div class="${winner(card2.stats.atk, card1.stats.atk)}">${card2.stats.atk}</div>
+
+    <div>DEF</div>
+    <div class="${winner(card1.stats.def, card2.stats.def)}">${card1.stats.def}</div>
+    <div class="${winner(card2.stats.def, card1.stats.def)}">${card2.stats.def}</div>
+
+    <div>Niveau</div>
+    <div class="${winner(card1.stats.level, card2.stats.level)}">${card1.stats.level}</div>
+    <div class="${winner(card2.stats.level, card1.stats.level)}">${card2.stats.level}</div>
+
+    <div>Total (ATK+DEF)</div>
+    <div class="${winner(card1.stats.atk+ card1.stats.def, card2.stats.atk + card2.stats.def)}">
+      ${card1.atk + card1.def}
+    </div>
+    <div class="${winner(card2.stats.atk + card2.stats.def, card1.stats.atk + card1.stats.def)}">
+      ${card2.stats.atk + card2.stats.def}
+    </div>
+  `;
+
+  resultDiv.classList.remove("hidden");
+}
+
+
+document.querySelector("#btn-compare")?.addEventListener("click", compareCards);
 
   
   
