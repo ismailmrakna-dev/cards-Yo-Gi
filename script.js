@@ -6,7 +6,7 @@
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
 let equipeMembers = []
-const creerCards = () => {
+const creerCards = (creatures) => {
   const containerCard = document.querySelector("#cardsMonster")
   const monsters = creatures.slice()
   monsters.forEach((monst) => {
@@ -37,11 +37,11 @@ const creerCards = () => {
     card.addEventListener("click", () => {
       afficheDetail(monst)
     })
-    const addbutton=document.createElement("button")
-    addbutton.textContent="Ajouter à l'équipe"
-    addbutton.className=" btn-ajouter bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90"
-    addbutton.setAttribute("dataId",monst.id)
-    addbutton.addEventListener("click",(e)=>{
+    const addbutton = document.createElement("button")
+    addbutton.textContent = "Ajouter à l'équipe"
+    addbutton.className = " btn-ajouter bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90"
+    addbutton.setAttribute("dataId", monst.id)
+    addbutton.addEventListener("click", (e) => {
       e.stopPropagation();
       addToEquipe(monst);
     });
@@ -56,7 +56,7 @@ const creerCards = () => {
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
-creerCards()
+creerCards(creatures)
 
 
 // -------------------------------------------------------------
@@ -82,7 +82,7 @@ function afficheDetail(monst) {
   const atkVal = detail.querySelector("#spAtkVal")
   const defVal = detail.querySelector("#spDefVal")
   let stars = ""
-  for (let i = 0; i < monst.stats.level; i++){
+  for (let i = 0; i < monst.stats.level; i++) {
     stars += "⭐"
   }
   image.src = monst.image
@@ -393,66 +393,91 @@ function addToEquipe(monst) {
 function teamdisplay() {
   const equipeCont = document.querySelector("#team #teamspace")
   const title = document.querySelector("#team h2")
-  if(title){
-    title.textContent=`Mon équipe (${equipeMembers.length}/6)`;
+  if (title) {
+    title.textContent = `Mon équipe (${equipeMembers.length}/6)`;
   }
-  equipeCont.innerHTML=""
-  for(let i=0;i<6;i++){
-    const part=document.createElement("div")
-    part.className="relative bg-blue-900 rounded-xl aspect-square overflow-hidden flex items-center justify-center"
-    if (equipeMembers[i]){
+  equipeCont.innerHTML = ""
+  for (let i = 0; i < 6; i++) {
+    const part = document.createElement("div")
+    part.className = "relative bg-blue-900 rounded-xl aspect-square overflow-hidden flex items-center justify-center"
+    if (equipeMembers[i]) {
       part.innerHTML = `
         <img src="${equipeMembers[i].image}" alt="${equipeMembers[i].name}" class="w-full h-full object-cover">
-      
-        <button onclick="removeFromTeam(${equipeMembers[i].id})" class="absolute top-2 right-2 bg-[#F5B942] rounded-full p-2 w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]">X</button>
         `;
+      const del = document.createElement("button")
+      del.textContent = "X"
+      del.className = "btn-del absolute top-2 right-2 bg-[#F5B942] rounded-full p-2 w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]"
+      del.setAttribute("dataId", equipeMembers[i].id)
+      del.addEventListener("click", (e) => {
+        e.stopPropagation()
+        removeFromTeam()
+        teamdisplay()
+        buttonsUpdate()
+      });
+      part.appendChild(del)
     }
-    else{
-      part.innerHTML=`<div class="absolute top-2 left-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold">
+    else {
+      part.innerHTML = `<div class="absolute top-2 left-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold">
       </div>`
     }
     equipeCont.appendChild(part)
   }
+  
 }
 
 
-function removeFromTeam(idmonster) {
+function removeFromTeam() {
   const message = document.querySelector('#teamMessage')
-  const index = equipeMembers.find((m) => m.id === idmonster)
-  const monster=equipeMembers[index]
-  equipeMembers = equipeMembers.filter((m) => m.id !== idmonster)
-  if (monster){
+  const buttons = document.querySelectorAll(".btn-del")
+  let monster = false
+  buttons.forEach((btn) => {
+    const idmonster = btn.getAttribute("dataId")
+    for (let i = 0; i < equipeMembers.length; i++) {
+      if (equipeMembers[i].id === idmonster) {
+        equipeMembers.splice(i, 1)
+        monster = true
+      }
+    }
+
+  })
+  if (monster) {
     message.textContent = `${monster.name} a été retiré à votre equipe`
     message.style.color = "#fbbf24"
   }
   teamdisplay()
   buttonsUpdate()
 }
-function buttonsUpdate(){
-  const buttons=document.querySelectorAll(".btn-ajouter")
-  buttons.forEach((btn)=>{
-    const idmonster=btn.getAttribute("dataId")
-    let inTeam=false
-    for(let i=0; i<equipeMembers.length;i++){
-      if(equipeMembers[i].id === idmonster){
-        inTeam=true
+function buttonsUpdate() {
+  const buttons = document.querySelectorAll(".btn-ajouter")
+  buttons.forEach((btn) => {
+    const idmonster = btn.getAttribute("dataId")
+    let inTeam = false
+    for (let i = 0; i < equipeMembers.length; i++) {
+      if (equipeMembers[i].id === idmonster) {
+        inTeam = true
         break
       }
     }
-    if(inTeam){
-      btn.textContent="Déja ajouté"
-      btn.disabled=true;
-      btn.classList.add("opacity-50","cursor-not-allowed")
+    if (equipeMembers.length >= 6) {
+      btn.textContent = "Equipe Complet"
+      btn.disabled = true;
+      btn.classList.add("opacity-50", "cursor-not-allowed")
+      return
     }
-    else{
-      btn.textContent="Ajouter à l'équipe"
-      btn.disabled=false;
-      btn.classList.remove("opacity-50","cursor-not-allowed")
+    else if (inTeam) {
+      btn.textContent = "Déja ajouté"
+      btn.disabled = true;
+      btn.classList.add("opacity-50", "cursor-not-allowed")
+    }
+    else {
+      btn.textContent = "Ajouter à l'équipe"
+      btn.disabled = false;
+      btn.classList.remove("opacity-50", "cursor-not-allowed")
     }
   })
 }
-console.log(equipeMembers)
-
+teamdisplay()
+buttonsUpdate()
 
 
 
@@ -467,3 +492,10 @@ console.log(equipeMembers)
 // -------------------------------------------------------------
 // BONUS : LocalStorage, Fetch API, tri, comparaison
 // -------------------------------------------------------------
+
+//show tri
+function showtri(){
+  const copy=creatures.slice()
+  copy.sort()
+  
+}
