@@ -359,7 +359,6 @@ function clearError() {
 function addToEquipe(monst) {
   const message = document.querySelector('#teamMessage')
   let alreadyAdded = false
-  const
   for (let i = 0; i < equipeMembers.length; i++) {
     if (equipeMembers[i].id === monst.id) {
       alreadyAdded = true
@@ -387,20 +386,30 @@ function teamdisplay() {
   const equipeCont = document.querySelector("#teamspace")
   const title = document.querySelector("#team h2")
   const message = document.querySelector('#teamMessage')
-  
-  members.forEach((ind, member) => {
-    if (equipeMembers.length <= 6) {
-      const ele = document.createElement("div")
-      ele.className = "equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md"
-      ele.innerHTML = `<div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+  if(title){
+    title.textContent=`Mon équipe (${teamdisplay.length}/6)`;
+  }
+  equipeCont.innerHTML=""
+  for(let i=0;i<6;i++){
+    const part=document.createElement("div")
+    part.className="relative bg-blue-900 rounded-xl aspect-square overflow-hidden flex items-center justify-center"
+    if (equipeMembers[i]) {
+      part.innerHTML = `
+        <img src="${equipeMembers[i].image}" alt="${equipeMembers[i].name}" class="w-full h-full object-cover">
       
-                  <button id="delCard" class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-                </div>`
+        <button onclick="removeFromTeam('${equipeMembers[i].id}')" class="absolute top-2 right-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]">X</button>
+        `;
     }
-  })
-
-
+    else{
+      part.innerHTML=`span class="absolute top-2 left-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold">
+      </span>`
+    }
+    equipeCont.appendChild(part)
+  }
 }
+
+
+
 function removeFromTeam(idmonster) {
   const message = document.querySelector('#teamMessage')
   const monster = equipeMembers.find((m) => m.id === idmonster)
