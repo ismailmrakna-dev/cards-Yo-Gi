@@ -283,7 +283,7 @@ function creerOneCard() {
 
 
       document.querySelector("#cardsMonster").innerHTML = "";
-      creerCards();
+      creerCards(creatures);
 
       form.reset();
       clearError();
@@ -296,7 +296,7 @@ function creerOneCard() {
 
 }
 
-creerOneCard()
+creerOneCard();
 
 
 function idIsValid(id) {
