@@ -5,7 +5,7 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
-const equipeMembers = []
+let equipeMembers = []
 const creerCards = () => {
   const containerCard = document.querySelector("#cardsMonster")
   const monsters = creatures.slice()
@@ -32,12 +32,20 @@ const creerCards = () => {
           </div>
           <p class="text-sm mx-auto text-white font-bold">ATK: ${monst.stats.atk} | DEF: ${monst.stats.def}</p>
           <p class="text-sm mx-auto font-bold text-white shadow-md">${stars}</p>
-          <button type="button" class="bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90">Ajouter à l'équipe</button>
         `;
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       afficheDetail(monst)
     })
+    const addbutton=document.createElement("button")
+    addbutton.textContent="Ajouter à l'équipe"
+    addbutton.className=" btn-ajouter bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90"
+    addbutton.setAttribute("dataId",monst.id)
+    addbutton.addEventListener("click",(e)=>{
+      e.stopPropagation();
+      addToEquipe(monst);
+    });
+    card.appendChild(addbutton)
     containerCard.appendChild(card);
   });
 }
@@ -74,7 +82,7 @@ function afficheDetail(monst) {
   const atkVal = detail.querySelector("#spAtkVal")
   const defVal = detail.querySelector("#spDefVal")
   let stars = ""
-  for (let i = 0; i < monst.stats.level; i++) {
+  for (let i = 0; i < monst.stats.level; i++){
     stars += "⭐"
   }
   image.src = monst.image
@@ -362,6 +370,7 @@ function addToEquipe(monst) {
   for (let i = 0; i < equipeMembers.length; i++) {
     if (equipeMembers[i].id === monst.id) {
       alreadyAdded = true
+      break
     }
   }
   if (alreadyAdded) {
@@ -370,57 +379,82 @@ function addToEquipe(monst) {
     return
   }
   if (equipeMembers.length >= 6) {
-    message.textContent = `votre equipe est Pleine (Max:6 Cards)`
+    message.textContent = "votre equipe est Pleine (Max:6 Cards)"
     message.style.color = "#f87171"
     return
   }
+
   equipeMembers.push(monst)
   message.textContent = `${monst.name} a été ajouté à votre equipe`
   message.style.color = "#4ade80"
   teamdisplay()
   buttonsUpdate()
-
-
 }
 function teamdisplay() {
-  const equipeCont = document.querySelector("#teamspace")
+  const equipeCont = document.querySelector("#team #teamspace")
   const title = document.querySelector("#team h2")
-  const message = document.querySelector('#teamMessage')
   if(title){
-    title.textContent=`Mon équipe (${teamdisplay.length}/6)`;
+    title.textContent=`Mon équipe (${equipeMembers.length}/6)`;
   }
   equipeCont.innerHTML=""
   for(let i=0;i<6;i++){
     const part=document.createElement("div")
     part.className="relative bg-blue-900 rounded-xl aspect-square overflow-hidden flex items-center justify-center"
-    if (equipeMembers[i]) {
+    if (equipeMembers[i]){
       part.innerHTML = `
         <img src="${equipeMembers[i].image}" alt="${equipeMembers[i].name}" class="w-full h-full object-cover">
       
-        <button onclick="removeFromTeam('${equipeMembers[i].id}')" class="absolute top-2 right-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]">X</button>
+        <button onclick="removeFromTeam(${equipeMembers[i].id})" class="absolute top-2 right-2 bg-[#F5B942] rounded-full p-2 w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]">X</button>
         `;
     }
     else{
-      part.innerHTML=`span class="absolute top-2 left-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold">
-      </span>`
+      part.innerHTML=`<div class="absolute top-2 left-2 bg-[#F5B942] rounded-full w-6 h-6 flex items-center justify-content text-xs fond-bold">
+      </div>`
     }
     equipeCont.appendChild(part)
   }
 }
 
 
-
 function removeFromTeam(idmonster) {
   const message = document.querySelector('#teamMessage')
-  const monster = equipeMembers.find((m) => m.id === idmonster)
+  const index = equipeMembers.find((m) => m.id === idmonster)
+  const monster=equipeMembers[index]
   equipeMembers = equipeMembers.filter((m) => m.id !== idmonster)
-  if (monster) {
+  if (monster){
     message.textContent = `${monster.name} a été retiré à votre equipe`
     message.style.color = "#fbbf24"
   }
   teamdisplay()
   buttonsUpdate()
 }
+function buttonsUpdate(){
+  const buttons=document.querySelectorAll(".btn-ajouter")
+  buttons.forEach((btn)=>{
+    const idmonster=btn.getAttribute("dataId")
+    let inTeam=false
+    for(let i=0; i<equipeMembers.length;i++){
+      if(equipeMembers[i].id === idmonster){
+        inTeam=true
+        break
+      }
+    }
+    if(inTeam){
+      btn.textContent="Déja ajouté"
+      btn.disabled=true;
+      btn.classList.add("opacity-50","cursor-not-allowed")
+    }
+    else{
+      btn.textContent="Ajouter à l'équipe"
+      btn.disabled=false;
+      btn.classList.remove("opacity-50","cursor-not-allowed")
+    }
+  })
+}
+console.log(equipeMembers)
+
+
+
 
 
 // -------------------------------------------------------------
