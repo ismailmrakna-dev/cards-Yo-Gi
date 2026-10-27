@@ -115,6 +115,22 @@ function afficheDetail(monst) {
   defVal.textContent = monst.stats.def
   def.style.width = perD + "%"
 
+  const detailBt = document.querySelector("#detailCard button");
+  detailBt.remove()
+  const detailBtn=document.createElement("button")
+  if (detailBtn) {
+    detailBtn.innerHTML=""
+    detailBtn.textContent = "Ajouter à l'équipe"
+    detailBtn.className = " btn-ajouter bg-[#F5B942] p-2 rounded-md text-sm font-bold text-white hover:bg-[#F5B942]/90"
+    detailBtn.setAttribute("dataId", monst.id)
+    detailBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      addToEquipe(monst);
+    });
+    detail.appendChild(detailBtn)
+  }
+  buttonsUpdate();
+
 }
 
 // -------------------------------------------------------------
@@ -403,8 +419,8 @@ function teamdisplay() {
   const title = document.querySelector("#team h2")
   if (title) {
     title.textContent = `Mon équipe (${equipeMembers.length}/6)`;
-    const equipe=document.querySelector("#team-count")
-    equipe.textContent=`${equipeMembers.length}`
+    const equipe = document.querySelector("#team-count")
+    equipe.textContent = `${equipeMembers.length}`
   }
   equipeCont.innerHTML = ""
   for (let i = 0; i < 6; i++) {
@@ -418,11 +434,8 @@ function teamdisplay() {
       del.textContent = "X"
       del.className = "btn-del absolute top-2 right-2 bg-[#F5B942] rounded-full p-2 w-6 h-6 flex items-center justify-content text-xs fond-bold hover:bg-[#E5A932]"
       del.setAttribute("dataId", equipeMembers[i].id)
-      del.addEventListener("click", (e) => {
-        e.stopPropagation()
-        removeFromTeam()
-        teamdisplay()
-        buttonsUpdate()
+      del.addEventListener("click", () => {
+        removeFromTeam(equipeMembers[i].id);
       });
       part.appendChild(del)
     }
@@ -432,30 +445,31 @@ function teamdisplay() {
     }
     equipeCont.appendChild(part)
   }
-  
+
 }
 
 
-function removeFromTeam() {
-  const message = document.querySelector('#teamMessage')
-  const buttons = document.querySelectorAll(".btn-del")
-  let monster = false
-  buttons.forEach((btn) => {
-    const idmonster = btn.getAttribute("dataId")
-    for (let i = 0; i < equipeMembers.length; i++) {
-      if (equipeMembers[i].id === idmonster) {
-        equipeMembers.splice(i, 1)
-        monster = true
-      }
-    }
+function removeFromTeam(idcard) {
+  const message = document.querySelector("#teamMessage");
 
-  })
-  if (monster) {
-    message.textContent = `${monster.name} a été retiré à votre equipe`
-    message.style.color = "#fbbf24"
+  let name = "";
+  for (let i = 0; i < equipeMembers.length; i++) {
+    if (equipeMembers[i].id === idcard) {
+      name = equipeMembers[i].name;
+      break;
+    }
   }
-  teamdisplay()
-  buttonsUpdate()
+
+  // Keep only the cards that are NOT the one we want to delete
+  equipeMembers = equipeMembers.filter(m => m.id !== idcard);
+
+  if (name) {
+    message.textContent = `${name} a été retiré de l'équipe.`;
+    message.style.color = "#fbbf24";
+  }
+
+  teamdisplay();
+  buttonsUpdate();
 }
 
 // -------------------------------------------------------------
@@ -498,7 +512,7 @@ function buttonsUpdate() {
 // -------------------------------------------------------------
 
 //show tri
-function showtri(){
+function showtri() {
   const containerCard = document.querySelector("#cardsMonster");
   const copy = creatures.slice();
   copy.sort((a, b) => (b.stats.atk + b.stats.def) - (a.stats.atk + a.stats.def));
@@ -515,7 +529,7 @@ function showtri(){
   clickbtn.addEventListener("click", () => {
     containerCard.innerHTML = "";
     filter.querySelectorAll(".btn-filter").forEach(btn => {
-      btn.style.background = "";        
+      btn.style.background = "";
       btn.classList.remove("active");
     });
     clickbtn.style.background = "#F5B942";
@@ -589,7 +603,7 @@ function compareCards() {
     <div class="${winner(card2.stats.level, card1.stats.level)}">${card2.stats.level}</div>
 
     <div>Total (ATK+DEF)</div>
-    <div class="${winner(card1.stats.atk+ card1.stats.def, card2.stats.atk + card2.stats.def)}">
+    <div class="${winner(card1.stats.atk + card1.stats.def, card2.stats.atk + card2.stats.def)}">
       ${card1.atk + card1.def}
     </div>
     <div class="${winner(card2.stats.atk + card2.stats.def, card1.stats.atk + card1.stats.def)}">
@@ -606,7 +620,7 @@ document.querySelector("#btn-compare")?.addEventListener("click", compareCards);
 
 // localStorage
 
-  // Save team to LocalStorage
+// Save team to LocalStorage
 function saveTeam() {
   localStorage.setItem("YoGiOh-team", JSON.stringify(equipeMembers));
 }
@@ -624,5 +638,5 @@ function loadData() {
   if (savedCreatures) {
     creatures = JSON.parse(savedCreatures);
   }
-}  
+}
 
