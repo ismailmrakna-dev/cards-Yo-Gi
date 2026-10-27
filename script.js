@@ -5,7 +5,7 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
-const equipeMembers=[]
+const equipeMembers = []
 const creerCards = () => {
   const containerCard = document.querySelector("#cardsMonster")
   const monsters = creatures.slice()
@@ -129,7 +129,7 @@ function searchNom() {
       else card.style.display = "none"
     })
 
-    
+
   })
 }
 searchNom()
@@ -183,7 +183,7 @@ function creerOneCard() {
     event.preventDefault();
     clearError();
 
-    
+
     const {
       id,
       name,
@@ -255,25 +255,27 @@ function creerOneCard() {
       isValid = false;
     }
 
-    
+
     if (isValid) {
       const newMonster = {
         id: id.value,
         name: name.value.trim(),
-        type: type.value,        
-        monsterType: monstertype.value,        
+        type: type.value,
+        monsterType: monstertype.value,
         race: race.value.trim(),
-        stats:{atk: Number(atkMonster.value),
-        def: Number(defMonster.value), level: Number(lvlMonster.value)},
+        stats: {
+          atk: Number(atkMonster.value),
+          def: Number(defMonster.value), level: Number(lvlMonster.value)
+        },
         image: imgMonster.value.trim(),
         description: descMonster.value.trim(),
         effect: effMonster.value.trim() || null
       };
       creatures.push(newMonster);
 
-      
+
       document.querySelector("#cardsMonster").innerHTML = "";
-      creerCards(); 
+      creerCards();
 
       form.reset();
       clearError();
@@ -281,7 +283,7 @@ function creerOneCard() {
       alert("Créature ajoutée avec succès !");
       console.log("Nouvelle créature :", newMonster);
     }
-    
+
   });
 
 }
@@ -354,45 +356,63 @@ function clearError() {
 // écouteur sur la grille et UN SEUL sur l'équipe (délégation).
 // -------------------------------------------------------------
 
-function addToEquipe(monst){
-  const message=document.querySelector('#teamMessage')
-  let alreadyAdded=false
+function addToEquipe(monst) {
+  const message = document.querySelector('#teamMessage')
+  let alreadyAdded = false
   const
-  for(let i=0; i<equipeMembers.length;i++){
-    if(equipeMembers[i].id === monst.id){
-      alreadyAdded=true
+  for (let i = 0; i < equipeMembers.length; i++) {
+    if (equipeMembers[i].id === monst.id) {
+      alreadyAdded = true
     }
   }
-  if(alreadyAdded){
-    message.textContent=`${monst.name} Est déjà dans votre equipe`
-    message.style.color="#f87171"
+  if (alreadyAdded) {
+    message.textContent = `${monst.name} Est déjà dans votre equipe`
+    message.style.color = "#f87171"
     return
   }
-  if(equipeMembers.length>=6){
-    message.textContent=`votre equipe est Pleine (Max:6 Cards)`
-    message.style.color="#f87171"
+  if (equipeMembers.length >= 6) {
+    message.textContent = `votre equipe est Pleine (Max:6 Cards)`
+    message.style.color = "#f87171"
     return
   }
   equipeMembers.push(monst)
-  message.textContent=`${monst.name} a été ajouté à votre equipe`
-  message.style.color="#4ade80"
-  Teamdisplay()
+  message.textContent = `${monst.name} a été ajouté à votre equipe`
+  message.style.color = "#4ade80"
+  teamdisplay()
   buttonsUpdate()
 
-   const equipeCont=document.querySelector("#teamspace")
-   const img=monst.image
-   const members=equipeCont.document.querySelectorAll("#equipe")
-   members.forEach((ind,member)=>{
-    if(equipecounter<=6){
-      const ele=document.createElement("div")
-      ele.className="equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md"
-      ele.innerHTML=`<div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+
+}
+function teamdisplay() {
+  const equipeCont = document.querySelector("#teamspace")
+  const title = document.querySelector("#team h2")
+  const message = document.querySelector('#teamMessage')
+  
+  members.forEach((ind, member) => {
+    if (equipeMembers.length <= 6) {
+      const ele = document.createElement("div")
+      ele.className = "equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md"
+      ele.innerHTML = `<div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
       
                   <button id="delCard" class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
                 </div>`
     }
-   })
+  })
+
+
 }
+function removeFromTeam(idmonster) {
+  const message = document.querySelector('#teamMessage')
+  const monster = equipeMembers.find((m) => m.id === idmonster)
+  equipeMembers = equipeMembers.filter((m) => m.id !== idmonster)
+  if (monster) {
+    message.textContent = `${monster.name} a été retiré à votre equipe`
+    message.style.color = "#fbbf24"
+  }
+  teamdisplay()
+  buttonsUpdate()
+}
+
 
 // -------------------------------------------------------------
 // 7. RÈGLES DE L'ÉQUIPE
