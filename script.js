@@ -157,6 +157,11 @@ function filtreType() {
     if (!clickbtn) return
     // 3. Filter the items
     filter.querySelectorAll("#btn-filter").forEach(btn => btn.style.background = "white")
+    const sortBtn = document.querySelector("#btn-sort");
+    if (sortBtn) {
+      sortBtn.style.background = "";
+      sortBtn.classList.remove("active");
+    }
     clickbtn.style.background = "#F5B942"
     const filterValue = clickbtn.textContent.toLowerCase().trim()
     cards.forEach((card) => {
@@ -494,24 +499,31 @@ function buttonsUpdate() {
 
 //show tri
 function showtri(){
-  const containerCard = document.querySelector("#cardsMonster")
-  const copy=creatures.slice()
-  copy.sort((a, b) => (b.stats.atk + b.stats.def ) - (a.stats.atk + a.stats.def ))
-  const filter = document.querySelector("#filters")
-  const clickbtn =document.querySelector("#btn-sort");
+  const containerCard = document.querySelector("#cardsMonster");
+  const copy = creatures.slice();
+  copy.sort((a, b) => (b.stats.atk + b.stats.def) - (a.stats.atk + a.stats.def));
+  const filter = document.querySelector("#filters");
+  const clickbtn = document.querySelector("#btn-sort");
+
   if (!clickbtn) {
-    containerCard.innerHTML=""
-    filtreType()
-    creerCards(creatures)
-    return
+    containerCard.innerHTML = "";
+    filtreType();
+    creerCards(creatures);
+    return;
   }
+
   clickbtn.addEventListener("click", () => {
-    containerCard.innerHTML=""
-    filter.querySelectorAll("#btn-filter").forEach(btn => btn.style.background = "white")
-    clickbtn.style.background = "#F5B942"
-    creerCards(copy)
-    filtreType()
-    })
+    containerCard.innerHTML = "";
+    filter.querySelectorAll(".btn-filter").forEach(btn => {
+      btn.style.background = "";        
+      btn.classList.remove("active");
+    });
+    clickbtn.style.background = "#F5B942";
+    clickbtn.classList.add("active");
+    creerCards(copy);
+    filtreType();
+    buttonsUpdate();
+  });
 }
 showtri()
 
