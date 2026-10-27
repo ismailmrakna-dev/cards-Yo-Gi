@@ -591,6 +591,15 @@ function compareCards() {
 
 document.querySelector("#btn-compare")?.addEventListener("click", compareCards);
 
-  
+
+// localStorage
+
+  // Save team to LocalStorage
+function saveTeam() {
+  localStorage.setItem("YoGiOh-team", JSON.stringify(equipeMembers));
+}
+function saveCreatures() {
+  localStorage.setItem("YoGiOh-creatures", JSON.stringify(creatures));
+}
   
 
