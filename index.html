@@ -43,21 +43,22 @@
       <!-- ===================== Filters ===================== -->
       <div id="filters" role="group" aria-label="Filtrer par type" class="flex flex-wrap gap-2 mb-2">
         <button type="button" id="btn-filter" class="chip bg-[#F5B942] w-auto h-auto hover:bg-[#F5B042]">ALL</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/DARK.svg" alt="icon type DARK">DARK</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/FIRE.svg" alt="icon type FIRE">FIRE</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/WATER.svg"  alt="icon type WATER">WATER</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/WIND.svg" alt="icon type WIND">WIND</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/EARTH.svg" alt="icon type EARTH">EARTH</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/LIGHT.svg" alt="icon type LIGHT">LIGHT</button>
-        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img class="h-6 w-6"
-            src="./images/DIVINE.svg" alt="icon type DIVINE">DIVINE</button>
-        <button type="button" id="btn-sort" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]">Sort</button>    
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/DARK.svg" alt="icon type DARK">DARK</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/FIRE.svg" alt="icon type FIRE">FIRE</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/WATER.svg" alt="icon type WATER">WATER</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/WIND.svg" alt="icon type WIND">WIND</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/EARTH.svg" alt="icon type EARTH">EARTH</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/LIGHT.svg" alt="icon type LIGHT">LIGHT</button>
+        <button type="button" id="btn-filter" class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]"><img
+            class="h-6 w-6" src="./images/DIVINE.svg" alt="icon type DIVINE">DIVINE</button>
+        <button type="button" id="btn-sort"
+          class="chip flex items-center gap-2 font-bold hover:bg-[#F5B942]">Sort</button>
       </div>
     </section>
 
@@ -70,8 +71,8 @@
       <section id="cardsMonster" aria-label="Créatures" class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-7 
       lg:grid-cols-3 lg:gap-7 lg:max-h-350 lg:h-340 lg:overflow-scroll ">
         <!-- card 0 -->
-        <article
-          id="cardmonster" class="hidden h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
+        <article id="cardmonster"
+          class="hidden h-150 flex flex-col gap-3 bg-[url('../images/bg-card.jpg')] bg-cover bg-center rounded-md p-3 pb-4 hover:scale-105 hover:shadow-lg hover:shadow-[#F5B942]/50 transition-all duration-300">
           <div class="relative flex h-2/3 items-center text-white justify-center rounded-xl bg-[#191970]">
             <img src="" alt="" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-white"></span>
@@ -111,51 +112,75 @@
           <div class="flex items-center justify-between">
             <h2 class="font-display text-3xl font-extrabold text-white">Red-Eyes Ultimate Dragon</h2>
             <span id="spRace" class="rounded-full bg-[#F5B942] px-3 py-1 text-sm font-bold text-white">Dragon</span>
-            <span id="spMonsterType" class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Fusion</span>
+            <span id="spMonsterType"
+              class="rounded-full bg-[#249DFF] px-3 py-1 text-sm font-bold text-white">Fusion</span>
 
           </div>
-          <span  class="flex items-center gap-2 font-bold text-[#F5B942]"><img id="imgType" class="h-7 w-7" src="./images/DARK.svg"
-              alt="icon type DARK"><span id="spanType">DARK</span></span>
+          <span class="flex items-center gap-2 font-bold text-[#F5B942]"><img id="imgType" class="h-7 w-7"
+              src="./images/DARK.svg" alt="icon type DARK"><span id="spanType">DARK</span></span>
           <p id="pDescription" class="text-sm text-white">A fan-made ultimate dragon created from Red-Eyes monsters.</p>
-          <p ><span class="font-bold  text-[#F5B942]">Effect: </span> <span id="spEffect">Fan-made card: can revive Fusion Materials used for
-            its Fusion Summon.</span></p>
+          <p><span class="font-bold  text-[#F5B942]">Effect: </span> <span id="spEffect">Fan-made card: can revive
+              Fusion Materials used for
+              its Fusion Summon.</span></p>
           <div class="flex flex-col gap-2 text-sm">
             <p id="pLvl" class="text-sm mx-auto font-bold shadow-md p-2">LVL : ⭐⭐⭐⭐⭐⭐⭐⭐</p>
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span
-                class="font-bold text-white">Attaque</span><span class="h-3 rounded-full bg-ground"><span
-                 id="spAtk" class="block h-3  rounded-full bg-[#F5B942]" style="width:60% "></span></span><span id="spAtkVal"
+                class="font-bold text-white">Attaque</span><span class="h-3 rounded-full bg-ground"><span id="spAtk"
+                  class="block h-3  rounded-full bg-[#F5B942]" style="width:60% "></span></span><span id="spAtkVal"
                 class="text-right font-mono text-white">3600</span></div>
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span
-                class="font-bold text-white">Défense</span><span class="h-3 rounded-full bg-ground"><span
-                  id="spDef" class="block h-3  rounded-full bg-[#249DFF]" style="width:53% "></span></span><span id="spDefVal"
+                class="font-bold text-white">Défense</span><span class="h-3 rounded-full bg-ground"><span id="spDef"
+                  class="block h-3  rounded-full bg-[#249DFF]" style="width:53% "></span></span><span id="spDefVal"
                 class="text-right font-mono text-white">2800</span></div>
           </div>
           <button type="button" class="btn-primary bg-[#F5B942] hover:bg-[#E5A932]">Ajouter à l'équipe</button>
         </section>
 
         <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
-        <section id="team" aria-label="Mon équipe" class="rounded-2xl text-white bg-[#191970] w-full  p-6 lg:w-full lg:mr-10">
+        <section id="team" aria-label="Mon équipe"
+          class="rounded-2xl text-white bg-[#191970] w-full  p-6 lg:w-full lg:mr-10">
           <h2 class="block font-display mb-4 text-2xl text-[#F5B942] font-extrabold">Mon équipe</h2>
           <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
                        compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
           <div id="teamspace" class="grid grid-cols-2 gap-4">
             <!-- member 1 -->
-              <div
-                class="hidden equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
-                <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
-                  <button  id="delCard" class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
-                </div>
+            <div
+              class="hidden equipe flex flex-col items-center justify-center gap-2 w-full h-40 p-2 bg-[#249DFF] border-white rounded-md">
+              <div class=" relative w-full h-full bg-[#2490FF] border-white rounded-md">
+                <button id="delCard" class="absolute p-2 bg-[#F5B942] rounded-xl hover:bg-[#E5A932]">D</button>
               </div>
-           </div>
-           <p id="teamMessage" class="text-md text-center w-full p-2 mt-2"></p>
+            </div>
+          </div>
+          <p id="teamMessage" class="text-md text-center w-full p-2 mt-2"></p>
         </section>
       </aside>
     </div>
+    <!-- COMPARE TWO CARD  -->
+    <section id="compare-section" class="mt-6 p-4 bg-[#191970] rounded-xl text-white">
+      <h3 class="text-xl font-bold text-[#F5B942] mb-4">Comparaison de cartes</h3>
+
+      <div class="flex gap-4 mb-4">
+        <select id="card1" class="flex-1 p-2 rounded bg-gray-800">
+          <option value="">Choisir la première carte</option>
+        </select>
+
+        <select id="card2" class="flex-1 p-2 rounded bg-gray-800">
+          <option value="">Choisir la deuxième carte</option>
+        </select>
+      </div>
+
+      <button id="btn-compare" class="bg-[#F5B942] text-black font-bold px-4 py-2 rounded">
+        Comparer
+      </button>
+
+      <div id="compare-result" class="mt-6 grid grid-cols-3 gap-4 text-center hidden">
+        <!-- Results will appear here -->
+      </div>
+    </section>
 
 
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
-    <section id="create" aria-label="Nouvelle créature"
-      class="flex flex-col gap-6 rounded-2xl bg-[#191970]  p-8">
+    <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-2xl bg-[#191970]  p-8">
       <div>
         <h2 class="font-display text-3xl font-extrabold text-[#F5B942]">Nouvelle créature</h2>
         <p class="text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>
@@ -165,7 +190,7 @@
           <input name="id" type="text" placeholder="#010" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Nom
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Nom
           <input name="name" type="text" placeholder="Nom de la créature" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
@@ -180,7 +205,7 @@
             <option>WATER</option>
             <option>DIVINE</option>
           </select>
-        </label>  
+        </label>
         <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Monster Type
           <select name="monstertype" class="field w-full text-gray-400 font-normal">
             <option value="">Choisir un type</option>
@@ -192,36 +217,38 @@
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Race
-          <input name="race" type="text" placeholder="Nom de la créature" class="field text-gray-400 font-normal required">
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Race
+          <input name="race" type="text" placeholder="Nom de la créature"
+            class="field text-gray-400 font-normal required">
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Niveau
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Niveau
           <input name="lvlMonster" type="text" placeholder="Niveau 1 to 12" class="field text-gray-400 font-normal">
           <span class="error-message text-sm font-normal"></span>
         </label>
 
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Attaque
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Attaque
           <input name="atkMonster" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal required">
           <span class="error-message text-sm font-normal"></span>
         </label>
-    
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Defence
+
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Defence
           <input name="defMonster" type="text" placeholder="0 à 5000" class="field text-gray-400 font-normal required">
           <span class="error-message text-sm font-normal"></span>
         </label>
-      
+
         <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Lien de l'image
-          <input name="imgMonster" type="text" placeholder="https://…/image.png" class="field text-gray-400 font-normal required">
+          <input name="imgMonster" type="text" placeholder="https://…/image.png"
+            class="field text-gray-400 font-normal required">
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Description
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Description
           <textarea name="descMonster" rows="3" placeholder="10 à 200 caractères"
             class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
           <span class="error-message text-sm font-normal"></span>
         </label>
-        <label  class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Effect 
+        <label class="flex flex-col gap-1 text-sm font-bold text-[#F5B942]">Effect
           <textarea name="effMonster" rows="2" placeholder="10 à 200 caractères"
             class="rounded-xl border-2 bg-white border-line text-gray-400 p-3 font-normal outline-none"></textarea>
           <span class="error-message text-sm font-normal"></span>
